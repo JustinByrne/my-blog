@@ -13,42 +13,42 @@ class CategoryController extends Controller
     {
         $categories = Category::with('category', 'tags')->orderBy('updated_at')->get();
 
-        return view('admin.category.index', compact('categories'));
+        return view('category.index', compact('categories'));
     }
 
     public function create(): View
     {
-        return view('admin.category.create');
+        return view('category.create');
     }
 
     public function store(CategoryRequest $request): RedirectResponse
     {
         Category::create($request->validated());
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('category.index');
     }
 
     public function show(Category $category): View
     {
-        return view('admin.category.show', compact('category'));
+        return view('category.show', compact('category'));
     }
 
     public function edit(Category $category): View
     {
-        return view('admin.category.edit', compact('category'));
+        return view('category.edit', compact('category'));
     }
 
     public function update(CategoryRequest $request, Category $category): RedirectResponse
     {
         $category->update($request->validated());
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('category.index');
     }
 
     public function destroy(Category $category): RedirectResponse
     {
         $category->delete();
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('category.index');
     }
 }

@@ -14,42 +14,42 @@ class ArticleController extends Controller
     {
         $articles = Article::with('category', 'tags')->orderBy('updated_at')->get();
 
-        return view('admin.article.index', compact('articles'));
+        return view('article.index', compact('articles'));
     }
 
     public function create(): View
     {
-        return view('admin.article.create');
+        return view('article.create');
     }
 
     public function store(ArticleRequest $request): RedirectResponse
     {
         Article::create($request->validated());
 
-        return redirect()->route('admin.article.index');
+        return redirect()->route('article.index');
     }
 
     public function show(Article $article): View
     {
-        return view('admin.article.show', compact('article'));
+        return view('article.show', compact('article'));
     }
 
     public function edit(Article $article): View
     {
-        return view('admin.article.edit', compact('article'));
+        return view('article.edit', compact('article'));
     }
 
     public function update(ArticleRequest $request, Article $article): RedirectResponse
     {
         $article->update($request->validated());
 
-        return redirect()->route('admin.article.index');
+        return redirect()->route('article.index');
     }
 
     public function destroy(Article $article): RedirectResponse
     {
         $article->delete();
 
-        return redirect()->route('admin.article.index');
+        return redirect()->route('article.index');
     }
 }

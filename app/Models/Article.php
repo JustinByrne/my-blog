@@ -14,13 +14,8 @@ class Article extends Model
     protected $fillable = [
         'title',
         'content',
+        'slug',
     ];
-
-    public function setTitleAtrribute($value)
-    {
-        $this->attributes['title'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
-    }
 
     public function user()
     {

@@ -12,13 +12,8 @@ class Category extends Model
 
     protected $fillable = [
         'name',
+        'slug',
     ];
-
-    public function setNameAtrribute($value)
-    {
-        $this->attributes['name'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
-    }
 
     public function articles()
     {

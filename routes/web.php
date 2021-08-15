@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +25,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('articles', ArticleController::class)->except(['show']);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('tags', TagController::class);
+});
+
+Route::get('/{article:slug}', [ArticleController::class, 'show'])->name('articles.show');

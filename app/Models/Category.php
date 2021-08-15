@@ -14,6 +14,12 @@ class Category extends Model
         'name',
     ];
 
+    public function setNameAtrribute($value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
     public function articles()
     {
         return $this->hasMany(Article::class);

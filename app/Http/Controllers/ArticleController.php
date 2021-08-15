@@ -26,7 +26,7 @@ class ArticleController extends Controller
     {
         Article::create($request->validated());
 
-        return redirect()->route('article.index');
+        return redirect()->route('articles.index');
     }
 
     public function show(Article $article): View
@@ -43,13 +43,13 @@ class ArticleController extends Controller
     {
         $article->update($request->validated());
 
-        return redirect()->route('article.index');
+        return redirect()->route('articles.index');
     }
 
     public function destroy(Article $article): RedirectResponse
     {
         $article->delete();
 
-        return redirect()->route('article.index');
+        return redirect()->route('articles.index');
     }
 }

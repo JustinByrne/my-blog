@@ -25,7 +25,7 @@ class TagController extends Controller
     {
         Tag::create($request->validated());
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tags.index');
     }
 
     public function show(Tag $tag): View
@@ -42,13 +42,13 @@ class TagController extends Controller
     {
         $tag->update($request->validated());
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tags.index');
     }
 
     public function destroy(Tag $tag): RedirectResponse
     {
         $tag->delete();
 
-        return redirect()->route('tag.index');
+        return redirect()->route('tags.index');
     }
 }

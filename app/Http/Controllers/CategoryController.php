@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index(): View
     {
-        $categories = Category::with('category', 'tags')->orderBy('updated_at')->get();
+        $categories = Category::with('articles')->orderBy('updated_at')->get();
 
         return view('category.index', compact('categories'));
     }

@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('slug');
             $table->text('content');
             $table->foreignId('user_id')->constrained();
-            $table->dateTime('published_at');
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

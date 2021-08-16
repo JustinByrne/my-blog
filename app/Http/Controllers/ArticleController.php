@@ -29,8 +29,15 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
-    public function show(Article $article): View
+    public function show(int $year, int $month, int $day, string $slug): View
     {
+        $article = Article::with('category', 'tags')
+            ->whereYear('published_at', $year)
+            ->whereMonth('published_at', $month)
+            ->whereDay('published_at', $day)
+            ->where('slug', $slug)
+            ->firstOrFail();
+        
         return view('article.show', compact('article'));
     }
 

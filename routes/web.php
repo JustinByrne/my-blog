@@ -32,4 +32,4 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('tags', TagController::class);
 });
 
-Route::get('/{article:slug}', [ArticleController::class, 'show'])->name('articles.show');
+Route::get('/{year}/{month}/{day}/{slug}', [ArticleController::class, 'show'])->name('articles.show');

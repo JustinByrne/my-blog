@@ -17,6 +17,8 @@ class Article extends Model
         'slug',
     ];
 
+    protected $dates = ['published_at'];
+
     public function getRouteKeyName()
     {
         return 'slug';

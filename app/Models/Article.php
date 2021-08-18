@@ -3,13 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Article extends Model
+class Article extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes;
+    use InteractsWithMedia, HasFactory, SoftDeletes;
 
     protected $fillable = [
         'title',

@@ -12,7 +12,7 @@ class ArticleController extends Controller
 {
     public function index(): View
     {
-        $articles = Article::with('category', 'tags')->orderBy('updated_at')->get();
+        $articles = Article::with('category', 'tags')->orderBy('updated_at')->paginate(15);
 
         return view('article.index', compact('articles'));
     }

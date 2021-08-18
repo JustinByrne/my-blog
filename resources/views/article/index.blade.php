@@ -67,7 +67,7 @@
                                                         {{ $article->published_at->format('d/m/Y h:m') }}
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                                        <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">View</a>
                                                         <a href="{{ route('articles.edit', $article->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                         <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
                                                     </td>

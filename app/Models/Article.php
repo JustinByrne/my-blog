@@ -40,4 +40,9 @@ class Article extends Model implements HasMedia
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    public function path()
+    {
+        return route('articles.show', [$this->published_at->year, $this->published_at->month, $this->published_at->day, $this->slug]);
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Requests\TagRequest;
 use Illuminate\Http\RedirectResponse;
 
 class TagController extends Controller

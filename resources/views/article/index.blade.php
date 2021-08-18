@@ -36,7 +36,7 @@
                                                 <th scope="col" class="px-5 py-3 w-36 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     Published
                                                 </th>
-                                                <th scope="col" class="relative px-3 py-3 w-36">
+                                                <th scope="col" class="relative px-3 py-3 w-40">
                                                     <span class="sr-only">View, edit and delete</span>
                                                 </th>
                                             </tr>
@@ -71,10 +71,12 @@
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         {{ $article->published_at->format('d/m/Y h:m') }}
                                                     </td>
-                                                    <td class="px-5 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">View</a>
-                                                        <a href="{{ route('articles.edit', $article->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                                    <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">
+                                                        <div class="flex justify-around">
+                                                            <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                                            <a href="{{ route('articles.edit', $article->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach

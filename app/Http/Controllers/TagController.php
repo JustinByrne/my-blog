@@ -11,7 +11,7 @@ class TagController extends Controller
 {
     public function index(): View
     {
-        $tags = Tag::with('articles')->orderBy('updated_at')->get();
+        $tags = Tag::withCount('articles')->orderBy('updated_at')->paginate(15);
 
         return view('tag.index', compact('tags'));
     }

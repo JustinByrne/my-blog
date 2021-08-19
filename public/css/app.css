@@ -32124,6 +32124,10 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.ck-editor__editable {
+  height: 24rem;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -188558,4 +188562,3 @@ select {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-

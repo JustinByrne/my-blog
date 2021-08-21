@@ -49,7 +49,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                @livewire('tag')
+                                @livewire('tag', ['model' => $article])
                             </div>
                         </div>
                     </div>

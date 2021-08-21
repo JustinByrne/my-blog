@@ -12,10 +12,16 @@ class Tag extends Component
     public $tags;
     public $selected;
 
-    public function mount()
+    public function mount($model = null)
     {
         $this->query = null;
         $this->selected = array();
+
+        if (! is_null($model)) {
+            foreach ($model->tags as $tag) {
+                $this->selected[$tag->id] = $tag->name;
+            }
+        }
     }
     
     public function render()

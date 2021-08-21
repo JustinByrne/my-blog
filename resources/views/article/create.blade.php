@@ -20,6 +20,7 @@
                                     </label>
                                     <textarea
                                         id="editor"
+                                        name="content"
                                         @class([
                                             'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md',
                                             'border-gray-300' => ! $errors->has('slug'),
@@ -43,7 +44,14 @@
                                         required="required"
                                     >
                                         @foreach ($categories as $category)
-                                            <option valule="{{ $category->id }}">
+                                            <option
+                                                value="{{ $category->id }}"
+                                                @if (old('category_id') == $category->id)
+                                                    selected="selected"
+                                                @elseif ($category->id == 1)
+                                                    selected="selected"
+                                                @endif
+                                            >
                                                 {{ $category->name }}
                                             </option>
                                         @endforeach

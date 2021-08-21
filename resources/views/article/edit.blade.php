@@ -8,9 +8,13 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="{{ route('articles.store') }}" method="POST">
+                <form action="{{ route('articles.update', $article) }}" method="POST">
                     @csrf
+                    @method('PATCH')
                     <div class="p-6 bg-white border-b border-gray-200">
+                        @foreach ($errors->all() as $message)
+                            {{ $message }}
+                        @endforeach
                         <div class="grid grid-cols-1 lg:grid-cols-7 gap-4">
                             <div class="lg:col-span-5">
                                 @livewire('slug', ['model' => $article ,'title' => true])
@@ -20,6 +24,7 @@
                                     </label>
                                     <textarea
                                         id="editor"
+                                        name="content"
                                         @class([
                                             'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md',
                                             'border-gray-300' => ! $errors->has('slug'),
@@ -43,7 +48,14 @@
                                         required="required"
                                     >
                                         @foreach ($categories as $category)
-                                            <option valule="{{ $category->id }}">
+                                            <option
+                                                value="{{ $category->id }}"
+                                                @if (old('category_id') == $category->id)
+                                                    selected="selected"
+                                                @elseif ($category->id == 1)
+                                                    selected="selected"
+                                                @endif
+                                            >
                                                 {{ $category->name }}
                                             </option>
                                         @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\View\View;
@@ -27,7 +28,17 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request): RedirectResponse
     {
-        Article::create($request->validated());
+        $article = Auth::user()->articles()->create($request->validated());
+
+        if ($request->action == 'publish') {
+            $article->published_at = today();
+        } else {
+            $article->published_at = null;
+        }
+
+        $article->save();
+
+        $article->tags()->sync(json_decode($request->tags));
 
         return redirect()->route('articles.index');
     }
@@ -54,6 +65,16 @@ class ArticleController extends Controller
     public function update(ArticleRequest $request, Article $article): RedirectResponse
     {
         $article->update($request->validated());
+
+        if ($request->action == 'publish') {
+            $article->published_at = today();
+        } else {
+            $article->published_at = null;
+        }
+
+        $article->save();
+
+        $article->tags()->sync(json_decode($request->tags));
 
         return redirect()->route('articles.index');
     }

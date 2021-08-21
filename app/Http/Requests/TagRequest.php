@@ -25,6 +25,7 @@ class TagRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'slug' => 'required',
         ];
     }
 }

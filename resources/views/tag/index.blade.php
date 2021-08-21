@@ -51,7 +51,7 @@
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">
                                                         <div class="flex justify-around">
-                                                            <a href="{{ route('categories.edit', $tag->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                            <a href="{{ route('tags.edit', $tag->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
                                                         </div>
                                                     </td>

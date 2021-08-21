@@ -46,7 +46,9 @@ class ArticleController extends Controller
 
     public function edit(Article $article): View
     {
-        return view('article.edit', compact('article'));
+        $categories = Category::all();
+        
+        return view('article.edit', compact('article', 'categories'));
     }
 
     public function update(ArticleRequest $request, Article $article): RedirectResponse

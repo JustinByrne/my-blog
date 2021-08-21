@@ -15,8 +15,10 @@ class Article extends Model implements HasMedia
 
     protected $fillable = [
         'title',
-        'content',
         'slug',
+        'content',
+        'category_id',
+        'published_at',
     ];
 
     protected $dates = ['published_at'];

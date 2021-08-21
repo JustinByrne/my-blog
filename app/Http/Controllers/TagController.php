@@ -12,7 +12,7 @@ class TagController extends Controller
 {
     public function index(): View
     {
-        $tags = Tag::withCount('articles')->orderBy('updated_at')->paginate(15);
+        $tags = Tag::withCount('articles')->orderBy('name')->paginate(15);
 
         return view('tag.index', compact('tags'));
     }

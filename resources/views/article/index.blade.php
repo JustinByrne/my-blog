@@ -69,11 +69,15 @@
                                                         @endforeach
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                        {{ $article->published_at->format('d/m/Y h:m') }}
+                                                        @if (! is_null($article->published_at))
+                                                            {{ $article->published_at->format('d/m/Y h:m') }}
+                                                        @endif
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">
                                                         <div class="flex justify-around">
-                                                            <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                                            @if (! is_null($article->published_at))
+                                                                <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                                            @endif
                                                             <a href="{{ route('articles.edit', $article->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
                                                         </div>

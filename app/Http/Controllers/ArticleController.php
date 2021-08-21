@@ -13,14 +13,14 @@ class ArticleController extends Controller
 {
     public function index(): View
     {
-        $articles = Article::with('category', 'tags')->orderBy('updated_at')->paginate(15);
+        $articles = Article::with('category', 'tags')->orderBy('updated_at', 'DESC')->paginate(15);
 
         return view('article.index', compact('articles'));
     }
 
     public function create(): View
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
         
         return view('article.create', compact('categories'));
     }
@@ -46,7 +46,7 @@ class ArticleController extends Controller
 
     public function edit(Article $article): View
     {
-        $categories = Category::all();
+        $categories = Category::orderBy('name')->get();
         
         return view('article.edit', compact('article', 'categories'));
     }

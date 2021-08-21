@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
@@ -19,7 +20,9 @@ class ArticleController extends Controller
 
     public function create(): View
     {
-        return view('article.create');
+        $categories = Category::all();
+        
+        return view('article.create', compact('categories'));
     }
 
     public function store(ArticleRequest $request): RedirectResponse

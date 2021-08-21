@@ -1,6 +1,6 @@
 <div class="relative">
     <label for="query" class="block text-sm font-medium text-gray-700">
-        Tags <span class="text-red-400">*</span>
+        Tags
     </label>
     <input
         wire:model.debounce.300ms="query"
@@ -44,6 +44,7 @@
                 </span>
             </span>
         @empty
-        @endforelse        
+        @endforelse
     </div>
+    <input type="hidden" name="tags" value="@json(array_keys($selected))">
 </div>

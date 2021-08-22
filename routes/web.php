@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('articles', ArticleController::class)->except(['show']);
     Route::resource('categories', CategoryController::class);
     Route::resource('tags', TagController::class);
+    Route::post('/upload', [UploadController::class, 'store'])->name('upload');
 });
 
 Route::get('/{year}/{month}/{day}/{slug}', [ArticleController::class, 'show'])->name('articles.show');

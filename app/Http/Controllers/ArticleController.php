@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\TempFile;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -39,6 +41,12 @@ class ArticleController extends Controller
         $article->save();
 
         $article->tags()->sync(json_decode($request->tags));
+
+        $file = TempFile::where('folder', $request->image)->first();
+        if ($file) {
+            $article->addMedia(Storage::path($request->image . '/' . $file->filename))->toMediaCollection();
+            $file->delete();
+        }
 
         return redirect()->route('articles.index');
     }

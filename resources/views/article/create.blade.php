@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <form action="{{ route('articles.store') }}" method="POST">
+                <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="p-6 bg-white border-b border-gray-200">
                         <div class="grid grid-cols-1 lg:grid-cols-7 gap-4">
@@ -39,6 +39,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-2">
+                                @livewire('imageupload')
                                 <div class="pb-4">
                                     <label for="category_id" class="block text-sm font-medium text-gray-700">
                                         Category <span class="text-red-400">*</span>

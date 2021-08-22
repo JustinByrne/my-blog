@@ -14,7 +14,16 @@
                         <div class="grid grid-cols-1 lg:grid-cols-7 gap-4">
                             <div class="lg:col-span-5">
                                 @livewire('slug', ['title' => true])
-                                <div class="pt-4">
+                                <div class="pt-4 max-w-full prose" x-data x-init="
+                                    ClassicEditor
+                                        .create(document.querySelector('#editor'))
+                                        .then(editor => {
+                                            console.log(editor);
+                                        })
+                                        .catch(error => {
+                                            console.error(error);
+                                        });
+                                    ">
                                     <label for="content" class="block text-sm font-medium text-gray-700 pb-2">
                                         Content <span class="text-red-400">*</span>
                                     </label>

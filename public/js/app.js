@@ -3822,11 +3822,14 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 
-_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default().create(document.querySelector('#editor')).then(function (editor) {
-  console.log(editor);
-})["catch"](function (error) {
-  console.error(error);
-});
+window.ClassicEditor = (_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_0___default()); // ClassicEditor
+//     .create(document.querySelector('#editor'))
+//     .then(editor => {
+//         console.log(editor);
+//     })
+//     .catch(error => {
+//         console.error(error);
+//     });
 
 /***/ }),
 

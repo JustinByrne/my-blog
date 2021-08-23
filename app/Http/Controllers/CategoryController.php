@@ -48,6 +48,8 @@ class CategoryController extends Controller
 
     public function destroy(Category $category): RedirectResponse
     {
+        abort_if($category->id == 1, 403);
+        
         $category->delete();
 
         return redirect()->route('categories.index');

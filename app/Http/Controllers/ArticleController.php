@@ -84,6 +84,13 @@ class ArticleController extends Controller
 
         $article->tags()->sync(json_decode($request->tags));
 
+        $file = TempFile::where('folder', $request->image)->first();
+        if ($file) {
+            $article->clearMediaCollection();
+            $article->addMedia(Storage::path($request->image . '/' . $file->filename))->toMediaCollection();
+            $file->delete();
+        }
+
         return redirect()->route('articles.index');
     }
 

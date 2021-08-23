@@ -43,6 +43,7 @@
                                 </div>
                             </div>
                             <div class="lg:col-span-2">
+                                @livewire('imageupload', ['article' => $article])
                                 <div class="pb-4">
                                     <label for="category_id" class="block text-sm font-medium text-gray-700">
                                         Category <span class="text-red-400">*</span>

@@ -76,10 +76,24 @@
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">
                                                         <div class="flex justify-around">
                                                             @if (! is_null($article->published_at))
-                                                                <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                                                                <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">
+                                                                    View
+                                                                </a>
                                                             @endif
-                                                            <a href="{{ route('articles.edit', $article->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                                            <a href="{{ route('articles.edit', $article->slug) }}" class="text-indigo-600 hover:text-indigo-900">
+                                                                Edit
+                                                            </a>
+                                                            <a
+                                                                href="{{ route('articles.destroy', $article->slug) }}"
+                                                                class="text-indigo-600 hover:text-indigo-900"
+                                                                onclick="event.preventDefault(); document.getElementById('delete-{{ $article->id }}').submit();"
+                                                            >
+                                                                Delete
+                                                            </a>
+                                                            <form id="delete-{{ $article->id }}" action="{{ route('articles.destroy', $article->slug) }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>

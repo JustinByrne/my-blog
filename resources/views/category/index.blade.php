@@ -52,7 +52,17 @@
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">
                                                         <div class="flex justify-around">
                                                             <a href="{{ route('categories.edit', $category->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                                            <a
+                                                                href="{{ route('categories.destroy', $category->slug) }}"
+                                                                class="text-indigo-600 hover:text-indigo-900"
+                                                                onclick="event.preventDefault(); document.getElementById('delete-{{ $category->id }}').submit();"
+                                                            >
+                                                                Delete
+                                                            </a>
+                                                            <form id="delete-{{ $category->id }}" action="{{ route('categories.destroy', $category->slug) }}" method="POST" style="display: none;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>

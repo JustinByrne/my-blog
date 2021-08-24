@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Page;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Requests\PageRequest;
+use Illuminate\Http\RedirectResponse;
 
 class PageController extends Controller
 {
@@ -15,25 +17,24 @@ class PageController extends Controller
         return view('page.index', compact('pages'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(): View
     {
-        //
+        $max_order = (! is_null(Page::max('order')) && Page::max('order') >= 0) ? Page::max('order') : 0;
+
+        return view('page.create', compact('max_order'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(PageRequest $request): RedirectResponse
     {
-        //
+        $page = Page::create($request->validated());
+
+        if ($request->action == 'publish') {
+            $page->published_at = today();
+        } else {
+            $page->published_at = null;
+        }
+
+        return redirect()->route('pages.index');
     }
 
     /**

@@ -18,7 +18,7 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content');
-            $table->date('published_at');
+            $table->date('published_at')->nullable();
             $table->integer('order');
             $table->timestamps();
         });

@@ -37,7 +37,7 @@
                                             @foreach ($categories as $category)
                                                 <tr>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <input type="checkbox" name="id" value="{{ $category->id }}">
+                                                        {{-- <input type="checkbox" name="id" value="{{ $category->id }}"> --}}
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="text-sm font-medium text-gray-900 capitalize">

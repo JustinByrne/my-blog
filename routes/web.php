@@ -20,7 +20,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 require __DIR__.'/auth.php';
 

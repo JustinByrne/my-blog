@@ -16,8 +16,15 @@ class Page extends Model
         'content',
     ];
 
+    protected $dates = ['published_at'];
+
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function path()
+    {
+        return route('pages.show', [$this->slug]);
     }
 }

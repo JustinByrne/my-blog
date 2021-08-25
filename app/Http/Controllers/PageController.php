@@ -34,41 +34,34 @@ class PageController extends Controller
             $page->published_at = null;
         }
 
+        $page->save();
+
         return redirect()->route('pages.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Page $page)
+    public function show(Page $page): View
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Page $page)
+    public function edit(Page $page): View
     {
-        //
+        return view('page.edit', compact('page'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Page $page)
+    public function update(PageRequest $request, Page $page): RedirectResponse
     {
-        //
+        $page->update($request->validated());
+
+        if ($request->action == 'publish') {
+            $page->published_at = today();
+        } else {
+            $page->published_at = null;
+        }
+
+        $page->save();
+        
+        return redirect()->route('pages.index');
     }
 
     /**

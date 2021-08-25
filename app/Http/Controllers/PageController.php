@@ -41,7 +41,7 @@ class PageController extends Controller
 
     public function show(Page $page): View
     {
-        //
+        return view('page.show', compact('page'));
     }
 
     public function edit(Page $page): View
@@ -64,14 +64,10 @@ class PageController extends Controller
         return redirect()->route('pages.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Page  $page
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Page $page)
+    public function destroy(Page $page): RedirectResponse
     {
-        //
+        $page->delete();
+
+        return redirect()->route('pages.index');
     }
 }

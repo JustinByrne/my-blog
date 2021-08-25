@@ -39,8 +39,10 @@ class PageController extends Controller
         return redirect()->route('pages.index');
     }
 
-    public function show(Page $page): View
+    public function show($slug): View
     {
+        $page = Page::where('slug', $slug)->firstOrFail();
+        
         return view('page.show', compact('page'));
     }
 

@@ -78,6 +78,18 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.*')">
+                {{ __('Pages') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
+                {{ __('Articles') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
+                {{ __('Categories') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.*')">
+                {{ __('Tags') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

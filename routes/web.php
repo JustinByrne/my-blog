@@ -29,11 +29,12 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('pages', PageController::class);
+    Route::resource('pages', PageController::class)->except(['show']);
     Route::resource('articles', ArticleController::class)->except(['show']);
     Route::resource('categories', CategoryController::class);
     Route::resource('tags', TagController::class);
     Route::post('/upload', [UploadController::class, 'store'])->name('upload');
 });
 
+Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');
 Route::get('/{year}/{month}/{day}/{slug}', [ArticleController::class, 'show'])->name('articles.show');

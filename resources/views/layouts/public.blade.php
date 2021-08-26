@@ -35,11 +35,21 @@
                                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                                         {{ __('Home') }}
                                     </x-nav-link>
-                                    @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $page)
-                                        <x-nav-link :href="route('pages.show', [$page->slug])" :active="\Request::Is('pages.show', [$page->slug])">
-                                            {{ $page->title }}
+                                    @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $menu)
+                                        <x-nav-link :href="route('pages.show', [$menu->slug])" :active="\Request::Is('pages.show', [$menu->slug])">
+                                            {{ $menu->title }}
                                         </x-nav-link>
                                     @endforeach
+
+                                    @auth
+                                        <x-nav-link :href="url('/dashboard')">
+                                            {{ __('Dashboard') }}
+                                        </x-nav-link>
+                                    @else
+                                        <x-nav-link :href="route('login')">
+                                            {{ __('Login') }}
+                                        </x-nav-link>
+                                    @endauth
                                 </div>
                             </div>
                 
@@ -61,9 +71,9 @@
                             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                                 {{ __('Home') }}
                             </x-responsive-nav-link>
-                            @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $page)
-                                <x-responsive-nav-link :href="route('pages.show', [$page->slug])" :active="\Request::Is('pages.show', [$page->slug])">
-                                    {{ $page->title }}
+                            @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $menu)
+                                <x-responsive-nav-link :href="route('pages.show', [$menu->slug])" :active="\Request::Is('pages.show', [$menu->slug])">
+                                    {{ $menu->title }}
                                 </x-responsive-nav-link>
                             @endforeach
                         </div>
@@ -72,7 +82,14 @@
             </header>
 
             <main>
-                Main
+                <div class="w-full h-96 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg')">
+                    <div class="bg-white bg-opacity-10 w-full h-full flex justify-center items-center">
+                        <h1 class="text-white font-black text-5xl">
+                            {{ $title }}
+                        </h1>
+                    </div>
+                </div>
+                {{ $slot }}
             </main>
         </div>
     </body>

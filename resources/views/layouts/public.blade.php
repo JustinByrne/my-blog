@@ -89,7 +89,9 @@
                         </h1>
                     </div>
                 </div>
-                {{ $slot }}
+                <div class="max-w-7xl mx-auto">
+                    {{ $slot }}
+                </div>
             </main>
         </div>
     </body>

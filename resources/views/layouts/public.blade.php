@@ -17,8 +17,8 @@
     </head>
 
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            <header class="bg-white shadow">
+        <div class="min-h-screen bg-gray-100 relative">
+            <header class="bg-white shadow-lg fixed w-full z-10">
                 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="flex justify-between h-16">
@@ -81,7 +81,7 @@
                 </nav>
             </header>
 
-            <main>
+            <main class="pt-16">
                 <div class="w-full h-96 bg-cover bg-center" style="background-image: url('{{ $image }}')">
                     <div class="bg-black bg-opacity-60 w-full h-full flex justify-center items-center">
                         <h1 class="text-white font-black text-3xl md:text-4xl lg:text-5xl px-8">
@@ -89,12 +89,16 @@
                         </h1>
                     </div>
                 </div>
-                <div class="max-w-7xl lg:mx-8 xl:mx-auto pb-10 lg:pb-0">
-                    <div class="prose min-w-full bg-white py-8 px-8 lg:px-10 lg:rounded-lg lg:shadow-lg lg:-top-10 lg:transform lg:-translate-y-16">
+                <div class="max-w-7xl lg:mx-8 xl:mx-auto pb-4 lg:pb-0">
+                    <div class="prose prose-indigo min-w-full bg-white py-8 px-8 lg:px-10 lg:rounded-lg lg:shadow-lg lg:transform lg:-translate-y-16">
                         {{ $slot }}
                     </div>
                 </div>
             </main>
+
+            <footer class="text-center text-gray-400 pb-4 lg:pb-0 lg:transform lg:-translate-y-12">
+                Built on and using <a href="https://github.com/JustinByrne/my-blog" class="hover:underline hover:text-indigo-700">My Blog</a>
+            </footer>
         </div>
     </body>
 </html>

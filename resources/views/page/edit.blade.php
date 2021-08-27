@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout ckeditor>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Edit Article' ) }}
@@ -31,16 +31,7 @@
                                     value="{{ old('order', $page->order) }}"
                                 >
                             </div>
-                            <div class="max-w-full prose" x-data x-init="
-                                ClassicEditor
-                                    .create(document.querySelector('#editor'))
-                                    .then(editor => {
-                                        console.log(editor);
-                                    })
-                                    .catch(error => {
-                                        console.error(error);
-                                    });
-                                ">
+                            <div class="max-w-full prose">
                                 <label for="content" class="block text-sm font-medium text-gray-700 pb-2">
                                     Content <span class="text-red-400">*</span>
                                 </label>

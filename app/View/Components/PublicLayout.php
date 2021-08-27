@@ -11,7 +11,7 @@ class PublicLayout extends Component
     
     public function __construct($image = null)
     {
-        $this->image = ! is_null($image) && $image != '' ? $image : 'https://source.unsplash.com/random/1600x900' ;
+        $this->image = ! is_null($image) && $image != '' ? $image : 'https://source.unsplash.com/collection/4510513/1024x768' ;
     }
     
     public function render(): View

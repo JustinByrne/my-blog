@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function __invoke(Request $request): View
     {
-        $articles = Article::whereNotNull('published_at')->get();
+        $articles = Article::whereNotNull('published_at')->orderByDesc('published_at')->get();
         
         return view('home', compact('articles'));
     }

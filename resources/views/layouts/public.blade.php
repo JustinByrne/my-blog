@@ -82,15 +82,17 @@
             </header>
 
             <main>
-                <div class="w-full h-96 bg-cover bg-center" style="background-image: url('https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg')">
-                    <div class="bg-white bg-opacity-10 w-full h-full flex justify-center items-center">
-                        <h1 class="text-white font-black text-5xl">
+                <div class="w-full h-96 bg-cover bg-center" style="background-image: url('{{ $image }}')">
+                    <div class="bg-black bg-opacity-60 w-full h-full flex justify-center items-center">
+                        <h1 class="text-white font-black text-3xl md:text-4xl lg:text-5xl px-8">
                             {{ $title }}
                         </h1>
                     </div>
                 </div>
-                <div class="max-w-7xl mx-auto">
-                    {{ $slot }}
+                <div class="max-w-7xl lg:mx-8 xl:mx-auto pb-10 lg:pb-0">
+                    <div class="prose min-w-full bg-white py-8 px-8 lg:px-10 lg:rounded-lg lg:shadow-lg lg:-top-10 lg:transform lg:-translate-y-16">
+                        {{ $slot }}
+                    </div>
                 </div>
             </main>
         </div>

@@ -6,11 +6,13 @@ use Illuminate\View\Component;
 
 class AppLayout extends Component
 {
-    /**
-     * Get the view / contents that represents the component.
-     *
-     * @return \Illuminate\View\View
-     */
+    public $ckeditor;
+
+    public function __construct($ckeditor = false)
+    {
+        $this->ckeditor = $ckeditor;
+    }
+    
     public function render()
     {
         return view('layouts.app');

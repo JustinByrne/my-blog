@@ -16,6 +16,9 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        @if ($ckeditor)
+            <script src="{{ asset('js/ckeditor.js') }}" defer></script>
+        @endif
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

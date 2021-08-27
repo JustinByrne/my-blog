@@ -52,7 +52,7 @@
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         @if (! is_null($page->published_at))
-                                                            {{ $page->published_at->format('d/m/Y h:m') }}
+                                                            {{ $page->published_at->format('d/m/Y H:i') }}
                                                         @endif
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">

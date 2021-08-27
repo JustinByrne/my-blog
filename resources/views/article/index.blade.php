@@ -70,7 +70,7 @@
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm text-gray-500">
                                                         @if (! is_null($article->published_at))
-                                                            {{ $article->published_at->format('d/m/Y h:m') }}
+                                                            {{ $article->published_at->format('d/m/Y H:i') }}
                                                         @endif
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">

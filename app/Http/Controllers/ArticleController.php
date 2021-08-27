@@ -33,7 +33,7 @@ class ArticleController extends Controller
         $article = Auth::user()->articles()->create($request->validated());
 
         if ($request->action == 'publish') {
-            $article->published_at = today();
+            $article->published_at = now();
         } else {
             $article->published_at = null;
         }
@@ -75,7 +75,7 @@ class ArticleController extends Controller
         $article->update($request->validated());
 
         if ($request->action == 'publish') {
-            $article->published_at = today();
+            $article->published_at = now();
         } else {
             $article->published_at = null;
         }

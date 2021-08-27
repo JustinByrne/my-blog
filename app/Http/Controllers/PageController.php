@@ -29,7 +29,7 @@ class PageController extends Controller
         $page = Page::create($request->validated());
 
         if ($request->action == 'publish') {
-            $page->published_at = today();
+            $page->published_at = now();
         } else {
             $page->published_at = null;
         }
@@ -56,7 +56,7 @@ class PageController extends Controller
         $page->update($request->validated());
 
         if ($request->action == 'publish') {
-            $page->published_at = today();
+            $page->published_at = now();
         } else {
             $page->published_at = null;
         }

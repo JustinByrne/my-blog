@@ -97,7 +97,7 @@
             </main>
 
             <footer class="text-center text-gray-400 pb-4 lg:pb-0 lg:transform lg:-translate-y-12">
-                Built on and excited to show off <a href="https://github.com/JustinByrne/my-blog" target="_blank" class="hover:underline hover:text-indigo-700">My Blog</a>
+                Built on and excited to show off <a href="https://github.com/JustinByrne/my-blog" target="_blank" class="hover:underline hover:text-red-700">My Blog</a>
             </footer>
         </div>
     </body>

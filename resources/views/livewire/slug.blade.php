@@ -10,7 +10,7 @@
                 name="name"
                 id="name"
                 @class([
-                    'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md',
+                    'mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm rounded-md',
                     'border-gray-300' => ! $errors->has('name'),
                     'border-red-400' => $errors->has('name'),
                 ])
@@ -27,7 +27,7 @@
                 name="title"
                 id="title"
                 @class([
-                    'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md',
+                    'mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm rounded-md',
                     'border-gray-300' => ! $errors->has('title'),
                     'border-red-400' => $errors->has('title'),
                 ])
@@ -46,7 +46,7 @@
             name="slug"
             id="slug"
             @class([
-                'mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm rounded-md',
+                'mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm rounded-md',
                 'border-gray-300' => ! $errors->has('slug'),
                 'border-red-400' => $errors->has('slug'),
             ])

@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex justify-end pb-3">
-                        <a href="{{ route('articles.create') }}" class="shadow rounded-lg px-3 py-2 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <a href="{{ route('articles.create') }}" class="shadow rounded-lg px-3 py-2 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             New Article
                         </a>
                     </div>
@@ -63,7 +63,7 @@
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         @foreach ($article->tags as $tag)
-                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                                                 {{ $tag->name }}
                                                             </span>
                                                         @endforeach
@@ -76,16 +76,16 @@
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">
                                                         <div class="flex justify-around">
                                                             @if (! is_null($article->published_at))
-                                                                <a href="{{ $article->path() }}" class="text-indigo-600 hover:text-indigo-900">
+                                                                <a href="{{ $article->path() }}" class="text-red-600 hover:text-red-900">
                                                                     View
                                                                 </a>
                                                             @endif
-                                                            <a href="{{ route('articles.edit', $article->slug) }}" class="text-indigo-600 hover:text-indigo-900">
+                                                            <a href="{{ route('articles.edit', $article->slug) }}" class="text-red-600 hover:text-red-900">
                                                                 Edit
                                                             </a>
                                                             <a
                                                                 href="{{ route('articles.destroy', $article->slug) }}"
-                                                                class="text-indigo-600 hover:text-indigo-900"
+                                                                class="text-red-600 hover:text-red-900"
                                                                 onclick="event.preventDefault(); document.getElementById('delete-{{ $article->id }}').submit();"
                                                             >
                                                                 Delete

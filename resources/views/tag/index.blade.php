@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex justify-end pb-3">
-                        <a href="{{ route('tags.create') }}" class="shadow rounded-lg px-3 py-2 text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <a href="{{ route('tags.create') }}" class="shadow rounded-lg px-3 py-2 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                             New Tag
                         </a>
                     </div>
@@ -51,10 +51,10 @@
                                                     </td>
                                                     <td class="px-5 py-4 whitespace-nowrap text-sm font-medium">
                                                         <div class="flex justify-around">
-                                                            <a href="{{ route('tags.edit', $tag->slug) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                            <a href="{{ route('tags.edit', $tag->slug) }}" class="text-red-600 hover:text-red-900">Edit</a>
                                                             <a
                                                                 href="{{ route('tags.destroy', $tag->slug) }}"
-                                                                class="text-indigo-600 hover:text-indigo-900"
+                                                                class="text-red-600 hover:text-red-900"
                                                                 onclick="event.preventDefault(); document.getElementById('delete-{{ $tag->id }}').submit();"
                                                             >
                                                                 Delete

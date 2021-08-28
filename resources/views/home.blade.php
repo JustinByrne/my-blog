@@ -12,20 +12,40 @@
                     ])
                 >
                     @if ($article->getMedia()->count())
-                        <img src="{{ $article->getFirstMediaUrl() }}" class="rounded-md shadow-md w-full object-cover mt-0">
+                        <a href="{{ $article->path() }}">
+                            <img src="{{ $article->getFirstMediaUrl() }}" class="rounded-md shadow-md filter drop-shadow-md w-full object-cover mt-0">
+                        </a>
                     @endif
                 </div>
                 <div
                     @class([
-                        'lg:col-span-3 prose prose-indigo min-w-full',
+                        'lg:col-span-3' => $article->getMedia()->count(),
+                        'lg:col-span-5' => ! $article->getMedia()->count(),
                     ])
                 >
-                    <h2>
-                        {{ $article->title }}
-                    </h2>
-                    <div>
+                    <div class="flex justify-between text-xs">
+                        <span class="text-indigo-700 font-bold">
+                            {{ $article->category->name }}
+                        </span>
+                        <span>
+                            {{ $article->published_at->format('dS M Y') }}
+                        </span>
+                    </div>
+                    <a href="{{ $article->path() }}" class="hover:text-indigo-800">
+                        <h2 class="font-bold text-2xl mt-2 mb-4">
+                            {{ $article->title }}
+                        </h2>
+                    </a>
+                    <div class="prose prose-indigo mb-2">
                         {!! \Illuminate\Support\Str::words($article->content, 40, '...') !!}
                     </div>
+                    <small>
+                        @foreach ($article->tags as $tag)
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800">
+                                {{ $tag->name }}
+                            </span>
+                        @endforeach
+                    </small>
                 </div>
             </div>
         @endforeach

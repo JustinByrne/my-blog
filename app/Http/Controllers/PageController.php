@@ -19,7 +19,7 @@ class PageController extends Controller
 
     public function create(): View
     {
-        $max_order = (! is_null(Page::max('order')) && Page::max('order') >= 0) ? Page::max('order') : 0;
+        $max_order = (! is_null(Page::max('order')) && Page::max('order') >= 1) ? Page::max('order') + 1 : 1;
 
         return view('page.create', compact('max_order'));
     }

@@ -61,7 +61,7 @@
                                                             {{ $article->category->name }}
                                                         </div>
                                                     </td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <td class="px-6 py-4">
                                                         @foreach ($article->tags as $tag)
                                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
                                                                 {{ $tag->name }}

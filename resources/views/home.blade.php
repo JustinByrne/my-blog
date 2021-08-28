@@ -50,4 +50,5 @@
             </div>
         @endforeach
     </div>
+    {{ $articles->links() }}
 </x-public-layout>

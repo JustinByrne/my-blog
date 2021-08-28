@@ -2,7 +2,7 @@
     <x-slot name="title">
         {{ $article->title }}
     </x-slot>
-    <div class="prose prose-red">
+    <div class="prose prose-red min-w-full">
         {!! $article->content !!}
     </div>
 </x-public-layout>

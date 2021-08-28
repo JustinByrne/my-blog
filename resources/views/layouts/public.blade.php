@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="max-w-7xl lg:mx-8 xl:mx-auto pb-4 lg:pb-0">
-                    <div class="prose prose-indigo min-w-full bg-white py-8 px-8 lg:px-10 lg:rounded-lg lg:shadow-lg lg:transform lg:-translate-y-16">
+                    <div class="min-w-full bg-white py-8 px-8 lg:px-10 lg:rounded-lg lg:shadow-lg lg:transform lg:-translate-y-16">
                         {{ $slot }}
                     </div>
                 </div>

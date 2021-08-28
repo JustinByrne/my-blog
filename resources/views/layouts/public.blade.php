@@ -84,7 +84,7 @@
             <main class="pt-16">
                 <div class="w-full h-56 lg:h-96 bg-cover bg-center" style="background-image: url('{{ $image }}')">
                     <div class="bg-black bg-opacity-60 w-full h-full flex justify-center items-center">
-                        <h1 class="text-white font-black text-3xl md:text-4xl lg:text-5xl px-8 text-center">
+                        <h1 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl px-8 text-center">
                             {{ $title }}
                             
                             @if (! is_null($subtitle))

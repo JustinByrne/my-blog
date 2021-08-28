@@ -8,6 +8,7 @@ use Illuminate\View\Component;
 class PublicLayout extends Component
 {
     public $image;
+    public $subtitle;
     
     public function __construct($image = null)
     {

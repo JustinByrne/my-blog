@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title != config('app.name', 'Laravel') ? $title . ' | ' . config('app.name', 'Laravel') : config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -84,8 +84,15 @@
             <main class="pt-16">
                 <div class="w-full h-56 lg:h-96 bg-cover bg-center" style="background-image: url('{{ $image }}')">
                     <div class="bg-black bg-opacity-60 w-full h-full flex justify-center items-center">
-                        <h1 class="text-white font-black text-3xl md:text-4xl lg:text-5xl px-8">
+                        <h1 class="text-white font-black text-3xl md:text-4xl lg:text-5xl px-8 text-center">
                             {{ $title }}
+                            
+                            @if (! is_null($subtitle))
+                                <br>
+                                <span class="text-base font-thin align-middle text-gray-300">
+                                    {{ $subtitle }}
+                                </span>
+                            @endif
                         </h1>
                     </div>
                 </div>

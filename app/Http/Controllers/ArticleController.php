@@ -76,7 +76,7 @@ class ArticleController extends Controller
 
         if ($request->action == 'publish') {
             $article->published_at = now();
-        } else {
+        } elseif ($request->action == 'draft') {
             $article->published_at = null;
         }
 

@@ -57,7 +57,7 @@ class PageController extends Controller
 
         if ($request->action == 'publish') {
             $page->published_at = now();
-        } else {
+        } elseif ($request->action == 'draft') {
             $page->published_at = null;
         }
 

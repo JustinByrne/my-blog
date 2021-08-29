@@ -51,9 +51,7 @@
                                         @foreach ($categories as $category)
                                             <option
                                                 value="{{ $category->id }}"
-                                                @if (old('category_id') == $category->id)
-                                                    selected="selected"
-                                                @elseif ($category->id == 1)
+                                                @if (old('category_id', $article->category->id) == $category->id)
                                                     selected="selected"
                                                 @endif
                                             >

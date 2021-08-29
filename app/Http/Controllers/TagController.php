@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use App\Models\Article;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\TagRequest;
@@ -51,5 +52,20 @@ class TagController extends Controller
         $tag->delete();
 
         return redirect()->route('tags.index');
+    }
+
+    public function public(Tag $tag)
+    {
+        $articles = Article::with('category', 'tags')
+            ->whereHas('tags', function ($query) use ($tag) {
+                $query->where('name', $tag->name);
+            })
+            ->whereNotNull('published_at')
+            ->orderByDesc('published_at')
+            ->paginate(7);
+
+        $pageTitle = 'Tag: ' . $tag->name;
+        
+        return view('home', compact('articles', 'pageTitle'));
     }
 }

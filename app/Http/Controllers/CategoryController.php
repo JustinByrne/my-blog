@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -53,5 +54,20 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect()->route('categories.index');
+    }
+
+    public function public(Category $category)
+    {
+        $articles = Article::with('category', 'tags')
+            ->whereHas('category', function ($query) use ($category) {
+                $query->where('name', $category->name);
+            })
+            ->whereNotNull('published_at')
+            ->orderByDesc('published_at')
+            ->paginate(7);
+        
+        $pageTitle = "Category: " . $category->name;
+        
+        return view('home', compact('articles', 'pageTitle'));
     }
 }

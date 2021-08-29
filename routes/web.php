@@ -35,4 +35,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');
+Route::get('/tag/{tag}', [TagController::class, 'public'])->name('tags.public');
+Route::get('/category/{category}', [CategoryController::class, 'public'])->name('categories.public');
 Route::get('/{year}/{month}/{day}/{slug}', [ArticleController::class, 'show'])->name('articles.show');

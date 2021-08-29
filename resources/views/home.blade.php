@@ -1,6 +1,10 @@
 <x-public-layout>
     <x-slot name="title">
-        {{ config('app.name', 'Laravel') }}
+        @if (isset($pageTitle))
+            {{ $pageTitle }}
+        @else
+            {{ config('app.name', 'Laravel') }}
+        @endif
     </x-slot>
     <div class="flex flex-col space-y-20 px-4 lg:px-40 py-4">
         @foreach ($articles as $article)
@@ -24,9 +28,9 @@
                     ])
                 >
                     <div class="flex justify-between text-xs">
-                        <span class="text-red-700 font-bold">
+                        <a class="text-red-700 font-bold hover:text-black" href="{{ route('categories.public', $article->category) }}">
                             {{ $article->category->name }}
-                        </span>
+                        </a>
                         <span>
                             {{ $article->published_at->format('dS M Y') }}
                         </span>
@@ -41,9 +45,9 @@
                     </div>
                     <small>
                         @foreach ($article->tags as $tag)
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                            <a class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 hover:text-black" href="{{ route('tags.public', $tag) }}">
                                 {{ $tag->name }}
-                            </span>
+                            </a>
                         @endforeach
                     </small>
                 </div>

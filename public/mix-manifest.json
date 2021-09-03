@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/ckeditor-config.js": "/js/ckeditor-config.js",
     "/js/ckeditor.js": "/js/ckeditor.js",
     "/css/app.css": "/css/app.css"
 }

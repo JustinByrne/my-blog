@@ -23,10 +23,10 @@
                                         Content <span class="text-red-400">*</span>
                                     </label>
                                     <textarea
-                                        id="editor"
+                                        id="content"
                                         name="content"
                                         @class([
-                                            'mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm rounded-md',
+                                            'editor mt-1 focus:ring-red-500 focus:border-red-500 block w-full shadow-sm sm:text-sm rounded-md',
                                             'border-gray-300' => ! $errors->has('slug'),
                                             'border-red-400' => $errors->has('slug'),
                                         ])

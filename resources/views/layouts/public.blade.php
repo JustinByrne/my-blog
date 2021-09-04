@@ -11,9 +11,11 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/a11y-dark.min.css" integrity="sha512-Vj6gPCk8EZlqnoveEyuGyYaWZ1+jyjMPg8g4shwyyNlRQl6d3L9At02ZHQr5K6s5duZl/+YKMnM3/8pDhoUphg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
     </head>
 
     <body class="font-sans antialiased">
@@ -107,5 +109,6 @@
                 Built on and excited to show off <a href="https://github.com/JustinByrne/my-blog" target="_blank" class="hover:underline hover:text-red-700">My Blog</a>
             </footer>
         </div>
+        <script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>

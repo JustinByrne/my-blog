@@ -34388,6 +34388,20 @@ select{
   height:24rem;
 }
 
+.prose code {
+  --tw-bg-opacity:1;
+  background-color:rgba(254, 226, 226, var(--tw-bg-opacity));
+  padding-left:0.25rem;
+  padding-right:0.25rem;
+  --tw-text-opacity:1;
+  color:rgba(153, 27, 27, var(--tw-text-opacity));
+}
+
+.prose code::before,
+.prose code::after {
+  content: '';
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width:100%

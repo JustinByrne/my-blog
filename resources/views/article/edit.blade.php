@@ -30,7 +30,7 @@
                                             'border-gray-300' => ! $errors->has('slug'),
                                             'border-red-400' => $errors->has('slug'),
                                         ])
-                                    >{!! old('content', $article->content) !!}</textarea>
+                                    >{{ old('content', $article->content) }}</textarea>
                                 </div>
                             </div>
                             <div class="lg:col-span-2">

@@ -60,6 +60,7 @@
             this.xhr.send(data);
         }
     }
+    
     function SimpleUploadAdapterPlugin(editor) {
         editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
             return new MyUploadAdapter(loader);

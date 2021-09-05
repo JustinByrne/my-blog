@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
@@ -32,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('tags', TagController::class);
     Route::post('/upload', [UploadController::class, 'store'])->name('upload');
+    Route::post('/media/upload', MediaController::class)->name('media.upload');
 });
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');

@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('tags', TagController::class);
     Route::post('/upload', [UploadController::class, 'store'])->name('upload');
     Route::post('/media/upload', [UploadController::class, 'media'])->name('media.upload');
+    Route::get('/media', [MediaController::class, 'index'])->name('media.index');
 });
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');

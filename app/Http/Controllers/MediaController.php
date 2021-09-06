@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 
 class MediaController extends Controller
 {
-    public function __invoke(Request $request)
+    public function index()
     {
-        $media = Image::find(1);
-        $image = $media->addMediaFromRequest('upload')->toMediaCollection();
+        $media = Image::find(1)->getMedia();
 
-        return response()->json([
-            'url' => $image->getUrl()
-        ]);
+        return view('media.index', compact('media'));
     }
 }

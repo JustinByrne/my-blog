@@ -27,6 +27,9 @@
                     <x-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.*')">
                         {{ __('Tags') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('media.index')" :active="request()->routeIs('media.*')">
+                        {{ __('Media') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -89,6 +92,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.*')">
                 {{ __('Tags') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('media.index')" :active="request()->routeIs('media.*')">
+                {{ __('Media') }}
             </x-responsive-nav-link>
         </div>
 

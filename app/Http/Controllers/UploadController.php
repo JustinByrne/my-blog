@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\TempFile;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -29,5 +30,15 @@ class UploadController extends Controller
         }
 
         return response('Failed upload', 500);
+    }
+
+    public function media(Request $request)
+    {
+        $media = Image::find(1);
+        $image = $media->addMediaFromRequest('upload')->toMediaCollection();
+
+        return response()->json([
+            'url' => $image->getUrl()
+        ]);
     }
 }

@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('tags', TagController::class);
     Route::post('/upload', [UploadController::class, 'store'])->name('upload');
-    Route::post('/media/upload', MediaController::class)->name('media.upload');
+    Route::post('/media/upload', [UploadController::class, 'media'])->name('media.upload');
 });
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');

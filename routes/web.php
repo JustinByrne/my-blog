@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('tags', TagController::class);
     Route::post('/upload', [UploadController::class, 'store'])->name('upload');
     Route::post('/media/upload', [UploadController::class, 'media'])->name('media.upload');
+    Route::post('/media/filepond-upload', [UploadController::class, 'mediaPond'])->name('media.filepond-upload');
     Route::get('/media', [MediaController::class, 'index'])->name('media.index');
 });
 

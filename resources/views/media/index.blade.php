@@ -29,7 +29,7 @@
             FilePond.create(element);
             FilePond.setOptions({
                 server: {
-                    url: '{{ route('media.upload') }}',
+                    url: '{{ route('media.filepond-upload') }}',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     }

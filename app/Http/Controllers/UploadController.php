@@ -41,4 +41,18 @@ class UploadController extends Controller
             'url' => $image->getUrl()
         ]);
     }
+
+    public function mediaPond(Request $request)
+    {
+        $mimeTypes = ['image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'];
+
+        if ($request->hasFile('image') && in_array(File::mimeType($request->file('image')), $mimeTypes)) {
+            $media = Image::find(1);
+            $image = $media->addMediaFromRequest('image')->toMediaCollection();
+
+            return true;
+        }
+
+        return response('Failed upload', 500);
+    }
 }

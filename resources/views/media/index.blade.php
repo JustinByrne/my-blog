@@ -35,6 +35,14 @@
                     }
                 }
             });
+
+            const pond = document.querySelector('.filepond--root');
+            pond.addEventListener('FilePond:processfile', e => {
+                console.log('File uploaded', e.detail);
+                location.reload();
+            });
         }
+
+        
     </script>
 </x-app-layout>

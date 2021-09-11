@@ -7,6 +7,12 @@ use Livewire\Component;
 class Images extends Component
 {
     public $media;
+    public $selectedImage;
+
+    public function mount()
+    {
+        $this->selectedImage = null;
+    }
     
     public function render()
     {

@@ -18,4 +18,14 @@ class Images extends Component
     {
         return view('livewire.images');
     }
+
+    public function viewImage($image)
+    {
+        $this->selectedImage = $image;
+    }
+
+    public function closeImage()
+    {
+        $this->selectedImage = null;
+    }
 }

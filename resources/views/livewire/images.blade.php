@@ -1,7 +1,7 @@
 <div class="relative">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         @foreach ($media as $image)
-            <img class="w-full max-h-36 object-cover cursor-pointer" src="{{ $image->getFullUrl() }}" alt="{{ $image->name }}">
+            <img class="w-full max-h-36 object-cover cursor-pointer" src="{{ $image->getFullUrl() }}" alt="{{ $image->name }}" wire:click="viewImage('{{ $image->getFullUrl() }}')">
         @endforeach
     </div>
 
@@ -19,11 +19,11 @@
         ])
     >
         <div class="lg:col-span-2">
-            <img class="w-full" src="https://images.unsplash.com/photo-1628191136272-08f5d3d9a6c0?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80">
+            <img class="w-full" src="{{ $selectedImage }}">
         </div>
         <div>
             <div class="flex justify-end">
-                X
+                <span class="cursor-pointer" wire:click="closeImage">X</span>
             </div>
         </div>
     </div>

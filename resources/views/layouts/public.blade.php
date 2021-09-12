@@ -38,7 +38,7 @@
                                         {{ __('Home') }}
                                     </x-nav-link>
                                     @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $menu)
-                                        <x-nav-link :href="route('pages.show', [$menu->slug])" :active="\Request::Is('pages.show', [$menu->slug])">
+                                        <x-nav-link :href="route('pages.show', $menu)" :active="\Request::Is('pages.show', $menu)">
                                             {{ $menu->title }}
                                         </x-nav-link>
                                     @endforeach
@@ -74,7 +74,7 @@
                                 {{ __('Home') }}
                             </x-responsive-nav-link>
                             @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $menu)
-                                <x-responsive-nav-link :href="route('pages.show', [$menu->slug])" :active="\Request::Is('pages.show', [$menu->slug])">
+                                <x-responsive-nav-link :href="route('pages.show', $menu)" :active="\Request::Is('pages.show', $menu)">
                                     {{ $menu->title }}
                                 </x-responsive-nav-link>
                             @endforeach
@@ -84,7 +84,7 @@
             </header>
 
             <main class="pt-16">
-                <div class="w-full h-56 lg:h-96 bg-cover bg-center" style="background-image: url('{{ $image }}')">
+                <div class="w-full h-56 lg:h-96 bg-cover bg-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" @if (! is_null($image)) style="background-image: url('{{ $image }}')" @endif>
                     <div class="bg-black bg-opacity-60 w-full h-full flex justify-center items-center">
                         <h1 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl px-8 text-center">
                             {{ $title }}

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Images extends Component
 {
@@ -19,9 +20,9 @@ class Images extends Component
         return view('livewire.images');
     }
 
-    public function viewImage($image)
+    public function viewImage($id)
     {
-        $this->selectedImage = $image;
+        $this->selectedImage = Media::find($id);
     }
 
     public function closeImage()

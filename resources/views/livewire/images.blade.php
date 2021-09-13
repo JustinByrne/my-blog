@@ -1,7 +1,7 @@
 <div class="relative">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         @foreach ($media as $image)
-            <img class="w-full max-h-36 object-cover cursor-pointer" src="{{ $image->getFullUrl() }}" alt="{{ $image->name }}" wire:click="viewImage('{{ $image->getFullUrl() }}')">
+            <img class="w-full max-h-36 object-cover cursor-pointer" src="{{ $image->getFullUrl() }}" alt="{{ $image->name }}" wire:click="viewImage({{ $image->id }})">
         @endforeach
     </div>
 
@@ -15,17 +15,42 @@
 
     <div
         @class([
-            'fixed transform top-20 lg:top-1/2 lg:-translate-y-1/2 inset-x-4 lg:max-w-screen-lg lg:mx-auto lg:max-h-screen bg-white p-4 rounded-lg grid lg:grid-cols-3 gap-4',
+            'fixed transform top-20 lg:top-1/2 lg:-translate-y-1/2 inset-x-4 lg:max-w-screen-lg lg:mx-auto lg:max-h-screen bg-white p-4 rounded-lg grid lg:grid-cols-4 gap-4',
             'hidden' => is_null($selectedImage)
         ])
     >
-        <div class="lg:order-last">
-            <div class="flex justify-end">
-                <span class="cursor-pointer" wire:click="closeImage">X</span>
+        @if (! is_null($selectedImage) )
+            <div class="lg:order-last flex flex-col">
+                <div class="flex-grow p-4">
+                    <div class="flex justify-end">
+                        <span class="cursor-pointer" wire:click="closeImage">X</span>
+                    </div>
+                    <div class="prose prose-sm">
+                        <h3>
+                            {{ $selectedImage->name }}
+                        </h3>
+                        <p>
+                            Size: {{ $selectedImage->getHumanReadableSizeAttribute() }}
+                        </p>
+                        <p>
+                            Uploaded: {{ $selectedImage->created_at->format('d M Y') }}
+                        </p>
+                    </div>
+                </div>
+                <div class="flex justify-end">
+                    <form action="{{ route('media.delete', $selectedImage) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="shadow rounded-lg px-3 py-2 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                            Delete
+                        </button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="lg:col-span-2 aspect-w-1 aspect-h-1">
-            <img class="w-full object-contain" src="{{ $selectedImage }}">
-        </div>
+            <div class="lg:col-span-3 aspect-w-4 aspect-h-3">
+                <img class="w-full object-contain" src="{{ $selectedImage->getFullUrl() }}">
+                
+            </div>
+        @endif
     </div>
 </div>

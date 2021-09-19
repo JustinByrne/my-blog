@@ -35,16 +35,25 @@
                         <p>
                             Uploaded: {{ $selectedImage->created_at->format('d M Y') }}
                         </p>
+                        <div>
+                            <label for="alt_text">
+                                Alt Text:
+                            </label>
+                            <x-input type="text" class="text-xs" wire:model="alt_text" id="alt_text" />
+                        </div>
                     </div>
                 </div>
-                <div class="flex justify-end">
+                <div class="flex justify-end space-x-2">
                     <form action="{{ route('media.delete', $selectedImage) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="shadow rounded-lg px-3 py-2 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        <button type="submit" class="shadow rounded-lg px-3 py-2 text-white bg-red-800 hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-700">
                             Delete
                         </button>
                     </form>
+                    <button type="button" wire:click="updateImage" class="shadow rounded-lg px-3 py-2 text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                        Save
+                    </button>
                 </div>
             </div>
             <div class="lg:col-span-3 aspect-w-4 aspect-h-3">

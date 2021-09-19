@@ -9,6 +9,7 @@ class Images extends Component
 {
     public $media;
     public $selectedImage;
+    public $alt_text;
 
     public function mount()
     {
@@ -23,10 +24,21 @@ class Images extends Component
     public function viewImage($id)
     {
         $this->selectedImage = Media::find($id);
+        $this->alt_text = $this->selectedImage->alt_text;
     }
 
     public function closeImage()
     {
         $this->selectedImage = null;
+        $this->alt_text = null;
+    }
+
+    public function updateImage()
+    {
+        $this->selectedImage->update([
+            'alt_text' => $this->alt_text,
+        ]);
+
+        $this->closeImage();
     }
 }

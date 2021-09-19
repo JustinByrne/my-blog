@@ -41,6 +41,12 @@
                             </label>
                             <x-input type="text" class="text-xs" wire:model="alt_text" id="alt_text" />
                         </div>
+                        <div class="pt-3">
+                            <label for="alt_text">
+                                URL:
+                            </label>
+                            <x-input type="text" disabled class="text-xs bg-gray-100" value="{{ $selectedImage->getFullUrl() }}" />
+                        </div>
                     </div>
                 </div>
                 <div class="flex justify-end space-x-2">

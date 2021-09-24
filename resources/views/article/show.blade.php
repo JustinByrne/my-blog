@@ -5,25 +5,27 @@
     <x-slot name="subtitle">
         Published on {{ $article->published_at->format('dS M Y') }}
     </x-slot>
-    <div class="prose prose-red min-w-full">
-        <div class="flex justify-between pb-3">
+    <div>
+        <div class="flex justify-between pb-6">
             <div>
                 <strong>
                     Category:
                 </strong>
-                <span class="text-red-600">
+                <a href="{{ route('categories.public', $article->category) }}" class="text-red-600 hover:underline">
                     {{ $article->category->name }}
-                </span>
+                </a>
             </div>
             <div>
                 <strong>Tags:</strong>
                 @foreach ($article->tags as $tag)
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                    <a href="{{ route('tags.public', $tag) }}" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 hover:bg-red-200 hover:text-red-900">
                         {{ $tag->name }}
-                    </span>
+                    </a>
                 @endforeach
             </div>
         </div>
-        {!! $article->content !!}
+        <section class="prose prose-red min-w-full">
+            {!! $article->content !!}
+        </section>
     </div>
 </x-public-layout>

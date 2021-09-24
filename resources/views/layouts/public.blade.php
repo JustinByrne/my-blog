@@ -19,7 +19,7 @@
     </head>
 
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 relative">
+        <div class="min-h-screen bg-gray-100 relative flex flex-col">
             <header class="bg-white shadow-lg fixed w-full z-10">
                 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,7 +83,7 @@
                 </nav>
             </header>
 
-            <main class="pt-16">
+            <main class="pt-16 flex-grow">
                 <div class="w-full h-56 lg:h-96 bg-cover bg-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" @if (! is_null($image)) style="background-image: url('{{ $image }}')" @endif>
                     <div class="bg-black bg-opacity-60 w-full h-full flex justify-center items-center">
                         <h1 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl px-8 text-center">
@@ -105,10 +105,10 @@
                 </div>
             </main>
 
-            <footer class="text-center text-gray-400 pb-4 lg:pb-0 lg:transform lg:-translate-y-12">
-                Built on and excited to show off <a href="https://github.com/JustinByrne/my-blog" target="_blank" class="hover:underline hover:text-red-700">My Blog</a>
-            </footer>
+            @include('layouts.footer')
         </div>
-        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            hljs.initHighlightingOnLoad();
+        </script>
     </body>
 </html>

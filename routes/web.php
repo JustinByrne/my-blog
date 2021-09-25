@@ -37,6 +37,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/media/filepond-upload', [UploadController::class, 'mediaPond'])->name('media.filepond-upload');
     Route::get('/media', [MediaController::class, 'index'])->name('media.index');
     Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.delete');
+
+    Route::get('/admin', function() {
+        return view('admin.index');
+    })->name('admin.index');
 });
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');

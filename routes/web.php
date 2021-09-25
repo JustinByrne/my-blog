@@ -38,9 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/media', [MediaController::class, 'index'])->name('media.index');
     Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.delete');
 
-    Route::get('/admin', function() {
-        return view('admin.index');
-    })->name('admin.index');
+    Route::get('/settings', function() {
+        return view('settings.index');
+    })->name('settings.index');
 });
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');

@@ -12,27 +12,27 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav.link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.*')">
+                    </x-nav.link>
+                    <x-nav.link :href="route('pages.index')" :active="request()->routeIs('pages.*')">
                         {{ __('Pages') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
+                    </x-nav.link>
+                    <x-nav.link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
                         {{ __('Articles') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
+                    </x-nav.link>
+                    <x-nav.link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                         {{ __('Categories') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.*')">
+                    </x-nav.link>
+                    <x-nav.link :href="route('tags.index')" :active="request()->routeIs('tags.*')">
                         {{ __('Tags') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('media.index')" :active="request()->routeIs('media.*')">
+                    </x-nav.link>
+                    <x-nav.link :href="route('media.index')" :active="request()->routeIs('media.*')">
                         {{ __('Media') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.*')">
-                        {{ __('Admin') }}
-                    </x-nav-link>
+                    </x-nav.link>
+                    <x-nav.link :href="route('settings.index')" :active="request()->routeIs('settings.*')">
+                        {{ __('Settings') }}
+                    </x-nav.link>
                 </div>
             </div>
 
@@ -81,27 +81,27 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-nav.responsive-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.*')">
+            </x-nav.responsive-link>
+            <x-nav.responsive-link :href="route('pages.index')" :active="request()->routeIs('pages.*')">
                 {{ __('Pages') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
+            </x-nav.responsive-link>
+            <x-nav.responsive-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
                 {{ __('Articles') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
+            </x-nav.responsive-link>
+            <x-nav.responsive-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
                 {{ __('Categories') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('tags.index')" :active="request()->routeIs('tags.*')">
+            </x-nav.responsive-link>
+            <x-nav.responsive-link :href="route('tags.index')" :active="request()->routeIs('tags.*')">
                 {{ __('Tags') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('media.index')" :active="request()->routeIs('media.*')">
+            </x-nav.responsive-link>
+            <x-nav.responsive-link :href="route('media.index')" :active="request()->routeIs('media.*')">
                 {{ __('Media') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.*')">
-                {{ __('Admin') }}
-            </x-responsive-nav-link>
+            </x-nav.responsive-link>
+            <x-nav.responsive-link :href="route('settings.index')" :active="request()->routeIs('settings.*')">
+                {{ __('Settings') }}
+            </x-nav.responsive-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -116,11 +116,11 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
+                    <x-nav.responsive-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
-                    </x-responsive-nav-link>
+                    </x-nav.responsive-link>
                 </form>
             </div>
         </div>

@@ -30,7 +30,7 @@
                     <x-nav.link :href="route('media.index')" :active="request()->routeIs('media.*')">
                         {{ __('Media') }}
                     </x-nav.link>
-                    <x-nav.link :href="route('settings.index')" :active="request()->routeIs('settings.*')">
+                    <x-nav.link :href="route('settings.general')" :active="request()->routeIs('settings.*')">
                         {{ __('Settings') }}
                     </x-nav.link>
                 </div>
@@ -99,7 +99,7 @@
             <x-nav.responsive-link :href="route('media.index')" :active="request()->routeIs('media.*')">
                 {{ __('Media') }}
             </x-nav.responsive-link>
-            <x-nav.responsive-link :href="route('settings.index')" :active="request()->routeIs('settings.*')">
+            <x-nav.responsive-link :href="route('settings.general')" :active="request()->routeIs('settings.*')">
                 {{ __('Settings') }}
             </x-nav.responsive-link>
         </div>

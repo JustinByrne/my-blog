@@ -8,6 +8,7 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/media', [MediaController::class, 'index'])->name('media.index');
     Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.delete');
 
-    Route::get('/settings', function() {
-        return view('settings.index');
-    })->name('settings.index');
+    Route::prefix('settings')->name('settings.')->group(function() {
+        Route::get('/', [SettingsController::class, 'general'])->name('general');
+    });
 });
 
 Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');

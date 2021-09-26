@@ -34,23 +34,23 @@
                 
                                 <!-- Navigation Links -->
                                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                                    <x-nav.link :href="route('home')" :active="request()->routeIs('home')">
                                         {{ __('Home') }}
-                                    </x-nav-link>
+                                    </x-nav.link>
                                     @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $menu)
-                                        <x-nav-link :href="route('pages.show', $menu)" :active="\Request::Is('pages.show', $menu)">
+                                        <x-nav.link :href="route('pages.show', $menu)" :active="\Request::Is('pages.show', $menu)">
                                             {{ $menu->title }}
-                                        </x-nav-link>
+                                        </x-nav.link>
                                     @endforeach
 
                                     @auth
-                                        <x-nav-link :href="url('/dashboard')">
+                                        <x-nav.link :href="url('/dashboard')">
                                             {{ __('Dashboard') }}
-                                        </x-nav-link>
+                                        </x-nav.link>
                                     @else
-                                        <x-nav-link :href="route('login')">
+                                        <x-nav.link :href="route('login')">
                                             {{ __('Login') }}
-                                        </x-nav-link>
+                                        </x-nav.link>
                                     @endauth
                                 </div>
                             </div>
@@ -70,13 +70,13 @@
                     <!-- Responsive Navigation Menu -->
                     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
                         <div class="pt-2 pb-3 space-y-1">
-                            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                            <x-nav.responsive-link :href="route('home')" :active="request()->routeIs('home')">
                                 {{ __('Home') }}
-                            </x-responsive-nav-link>
+                            </x-nav.responsive-link>
                             @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $menu)
-                                <x-responsive-nav-link :href="route('pages.show', $menu)" :active="\Request::Is('pages.show', $menu)">
+                                <x-nav.responsive-link :href="route('pages.show', $menu)" :active="\Request::Is('pages.show', $menu)">
                                     {{ $menu->title }}
-                                </x-responsive-nav-link>
+                                </x-nav.responsive-link>
                             @endforeach
                         </div>
                     </div>

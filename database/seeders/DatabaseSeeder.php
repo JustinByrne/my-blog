@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             AdminUserSeeder::class,
             DefaultCategorySeeder::class,
             ImageSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }

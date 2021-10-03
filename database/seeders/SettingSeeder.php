@@ -15,8 +15,8 @@ class SettingSeeder extends Seeder
     public function run()
     {
         $settings = [
-            'name' => 'Laravel',
-            'tagline' => '',
+            'site_name' => 'Laravel',
+            'tag_line' => '',
         ];
 
         foreach ($settings as $name => $value) {

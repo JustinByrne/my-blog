@@ -10,6 +10,8 @@ class SettingsController extends Controller
 {
     public function general(): View
     {
-        return view('settings.general');
+        $settings = Setting::all();
+        
+        return view('settings.general', compact('settings'));
     }
 }

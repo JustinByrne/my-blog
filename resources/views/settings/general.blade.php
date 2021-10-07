@@ -3,7 +3,9 @@
         General
     </x-slot>
 
-    <form action="#" method="POST">
+    <form action="{{ route('settings.storeSettings') }}" method="POST">
+        @csrf
+        @method('PATCH')
         <div class="shadow sm:rounded-md sm:overflow-hidden">
             <div class="bg-white py-6 px-4 sm:p-6">
                 <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-6">

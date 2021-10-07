@@ -173,7 +173,7 @@
                 </a>
             </div>
             <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-                &copy; {{ \Carbon\Carbon::now()->year }} {{ config('app.name', 'Laravel') }}
+                &copy; {{ \Carbon\Carbon::now()->year }} {{ $site_name }}
             </p>
         </div>
     </div>

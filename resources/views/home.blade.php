@@ -3,7 +3,7 @@
         @if (isset($pageTitle))
             {{ $pageTitle }}
         @else
-            {{ config('app.name', 'Laravel') }}
+            {{ $site_name }}
         @endif
     </x-slot>
     <div class="flex flex-col space-y-20 px-4 lg:px-40 py-4">

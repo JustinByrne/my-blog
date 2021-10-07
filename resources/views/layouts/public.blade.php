@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{ $title != config('app.name', 'Laravel') ? $title . ' | ' . config('app.name', 'Laravel') : config('app.name', 'Laravel') }}</title>
+        <title>{{ $title != $site_name ? $title . ' | ' . $site_name : $site_name }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -28,7 +28,7 @@
                                 <!-- Logo -->
                                 <div class="flex-shrink-0 flex items-center">
                                     <a href="/">
-                                        {{ config('app.name', 'Laravel') }}
+                                        {{ $site_name }}
                                     </a>
                                 </div>
                 

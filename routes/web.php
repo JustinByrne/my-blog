@@ -42,6 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('settings')->name('settings.')->group(function() {
         Route::get('/', [SettingsController::class, 'general'])->name('general');
         Route::patch('/', [SettingsController::class, 'storeSettings'])->name('storeSettings');
+        Route::get('/social', [SettingsController::class, 'social'])->name('social');
+        Route::patch('/social', [SettingsController::class, 'storeSocial'])->name('storeSocial');
     });
 });
 

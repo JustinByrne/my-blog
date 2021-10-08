@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Http\Requests\SocialRequest;
 use App\Http\Requests\SettingRequest;
 use Illuminate\Http\RedirectResponse;
 

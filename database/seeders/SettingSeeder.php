@@ -17,6 +17,7 @@ class SettingSeeder extends Seeder
         $settings = [
             'site_name' => 'Laravel',
             'tag_line' => null,
+            'site_logo' => null,
             'facebook_url' => null,
             'instagram_url' => null,
             'twitter_url' => null,

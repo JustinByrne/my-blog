@@ -9,7 +9,7 @@ A simple Laravel blog that allows for posting articles, and creating pages.
 
 ## Installation
 
-Download the latest version and unzip it to the chosen directory, then run the following.
+Download the latest version from the [production branch](https://github.com/JustinByrne/my-blog/tree/Production) and unzip it to the chosen directory, then run the following.
 
 ```bash
 cd my-blog

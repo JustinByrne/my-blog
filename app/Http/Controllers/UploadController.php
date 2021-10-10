@@ -50,7 +50,7 @@ class UploadController extends Controller
             $media = Image::find(1);
             $image = $media->addMediaFromRequest('image')->toMediaCollection();
 
-            return true;
+            return $image->getUrl();
         }
 
         return response('Failed upload', 500);

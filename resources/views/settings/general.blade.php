@@ -3,7 +3,7 @@
         General
     </x-slot>
 
-    <form action="{{ route('settings.storeSettings') }}" method="POST">
+    <form action="{{ route('settings.storeSettings') }}" method="POST"  enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -25,6 +25,14 @@
                             <x-input type="text" name="tag_line" id="tag_line" class="w-full" :value="old('tag_line', $settings->where('name', 'tag_line')->first()->value)" />
                         </div>
                     </div>
+                    <div class="sm:col-span-6">
+                        <label for="image" class="block text-sm font-medium text-gray-700">
+                            Site Logo
+                        </label>
+                        <div class="mt-1 flex rounded-md shadow-sm" x-data x-init="getImg($refs.input)">
+                            <x-input type="file" x-ref="input" name="image" id="image" class="w-full" :value="old('image', $settings->where('name', 'site_logo')->first()->value)" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -34,4 +42,18 @@
             </div>
         </div>
     </form>
+
+    <script>
+        function getImg(element) {
+            FilePond.create(element);
+            FilePond.setOptions({
+                server: {
+                    url: '{{ route('media.filepond-upload') }}',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    }
+                }
+            });
+        }
+    </script>
 </x-setting-layout>

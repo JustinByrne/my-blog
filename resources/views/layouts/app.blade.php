@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        @if (! is_null($site_logo))<link rel="shortcut icon" type="image/png" href="{{ $site_logo }}"/>@endif
         <title>{{ $site_name }}</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">

@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        @if (! is_null($site_logo))<link rel="shortcut icon" type="image/png" href="{{ $site_logo }}"/>@endif
         <title>{{ $title != $site_name ? $title . ' | ' . $site_name : $site_name }}</title>
 
         <!-- Fonts -->

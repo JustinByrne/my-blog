@@ -5,6 +5,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\SetupController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
@@ -20,6 +21,8 @@ use App\Http\Controllers\SettingsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/setup', [SetupController::class, 'index'])->name('setup.index');
 
 Route::middleware(['isSetup'])->group(function () {
     Route::get('/', HomeController::class)->name('home');
@@ -52,5 +55,4 @@ Route::middleware(['isSetup'])->group(function () {
     Route::get('/tag/{tag}', [TagController::class, 'public'])->name('tags.public');
     Route::get('/category/{category}', [CategoryController::class, 'public'])->name('categories.public');
     Route::get('/{year}/{month}/{day}/{slug}', [ArticleController::class, 'show'])->name('articles.show');
-
 });

@@ -21,33 +21,36 @@ use App\Http\Controllers\SettingsController;
 |
 */
 
-Route::get('/', HomeController::class)->name('home');
-
-require __DIR__.'/auth.php';
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::resource('pages', PageController::class)->except(['show']);
-    Route::resource('articles', ArticleController::class)->except(['show']);
-    Route::resource('categories', CategoryController::class);
-    Route::resource('tags', TagController::class);
-    Route::post('/upload', [UploadController::class, 'store'])->name('upload');
-    Route::post('/media/upload', [UploadController::class, 'media'])->name('media.upload');
-    Route::post('/media/filepond-upload', [UploadController::class, 'mediaPond'])->name('media.filepond-upload');
-    Route::get('/media', [MediaController::class, 'index'])->name('media.index');
-    Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.delete');
-
-    Route::prefix('settings')->name('settings.')->group(function() {
-        Route::get('/', [SettingsController::class, 'general'])->name('general');
-        Route::patch('/', [SettingsController::class, 'storeSettings'])->name('storeSettings');
-        Route::get('/social', [SettingsController::class, 'social'])->name('social');
-        Route::patch('/social', [SettingsController::class, 'storeSocial'])->name('storeSocial');
+Route::middleware(['isSetup'])->group(function () {
+    Route::get('/', HomeController::class)->name('home');
+    
+    require __DIR__.'/auth.php';
+    
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+        Route::resource('pages', PageController::class)->except(['show']);
+        Route::resource('articles', ArticleController::class)->except(['show']);
+        Route::resource('categories', CategoryController::class);
+        Route::resource('tags', TagController::class);
+        Route::post('/upload', [UploadController::class, 'store'])->name('upload');
+        Route::post('/media/upload', [UploadController::class, 'media'])->name('media.upload');
+        Route::post('/media/filepond-upload', [UploadController::class, 'mediaPond'])->name('media.filepond-upload');
+        Route::get('/media', [MediaController::class, 'index'])->name('media.index');
+        Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.delete');
+    
+        Route::prefix('settings')->name('settings.')->group(function() {
+            Route::get('/', [SettingsController::class, 'general'])->name('general');
+            Route::patch('/', [SettingsController::class, 'storeSettings'])->name('storeSettings');
+            Route::get('/social', [SettingsController::class, 'social'])->name('social');
+            Route::patch('/social', [SettingsController::class, 'storeSocial'])->name('storeSocial');
+        });
     });
-});
+    
+    Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');
+    Route::get('/tag/{tag}', [TagController::class, 'public'])->name('tags.public');
+    Route::get('/category/{category}', [CategoryController::class, 'public'])->name('categories.public');
+    Route::get('/{year}/{month}/{day}/{slug}', [ArticleController::class, 'show'])->name('articles.show');
 
-Route::get('/{slug}', [PageController::class, 'show'])->name('pages.show');
-Route::get('/tag/{tag}', [TagController::class, 'public'])->name('tags.public');
-Route::get('/category/{category}', [CategoryController::class, 'public'])->name('categories.public');
-Route::get('/{year}/{month}/{day}/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+});

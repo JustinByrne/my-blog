@@ -8,7 +8,7 @@ class CheckSetupService {
 
     public static function check(): Bool
     {
-        if (! Schema::hasTable('users')) {
+        if (! env('SITE_SETUP', false)) {
             return false;
         }
         

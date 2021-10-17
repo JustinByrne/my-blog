@@ -1,7 +1,7 @@
 <div>
-    <label for="image" class="block text-sm font-medium text-gray-700">
+    <x-label for="image">
         Image
-    </label>
+    </x-label>
 
     @if (! is_null($article) && $article->getMedia()->count())
         <div class="flex items-center space-x-3 pb-5">

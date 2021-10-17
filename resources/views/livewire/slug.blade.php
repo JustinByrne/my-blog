@@ -1,9 +1,9 @@
 <div>
     <div class="col-span-6 sm:col-span-3 pb-4">
         @if (! $title)
-            <label for="name" class="block text-sm font-medium text-gray-700">
+            <x-label for="name">
                 Name <span class="text-red-400">*</span>
-            </label>
+            </x-label>
             <input
                 wire:model.debounce.300ms="name"
                 type="text"
@@ -18,9 +18,9 @@
                 value="{{ old('name') }}"
             >
         @else
-            <label for="title" class="block text-sm font-medium text-gray-700">
+            <x-label for="title">
                 Title <span class="text-red-400">*</span>
-            </label>
+            </x-label>
             <input
                 wire:model.debounce.300ms="name"
                 type="text"
@@ -37,9 +37,9 @@
         @endif
     </div>
     <div class="col-span-6 sm:col-span-3">
-        <label for="slug" class="block text-sm font-medium text-gray-700">
+        <x-label for="slug">
             Slug <span class="text-red-400">*</span>
-        </label>
+        </x-label>
         <input
             wire:model="slug"
             type="text"

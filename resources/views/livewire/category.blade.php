@@ -1,7 +1,7 @@
 <div class="pb-4">
-    <label for="category_id" class="block text-sm font-medium text-gray-700">
+    <x-label for="category_id">
         Category <span class="text-red-400">*</span>
-    </label>
+    </x-label>
     <div class="flex flex-col mt-1 h-36 border border-gray-300 rounded-md">
         <div class="flex flex-col mb-auto px-2 py-1 overflow-y-auto">
             @foreach ($categories as $category)

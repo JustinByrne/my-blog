@@ -1,7 +1,7 @@
 <div class="relative">
-    <label for="query" class="block text-sm font-medium text-gray-700">
+    <x-label for="query">
         Tags
-    </label>
+    </x-label>
     <input
         wire:model.debounce.300ms="query"
         type="text"

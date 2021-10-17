@@ -14,9 +14,9 @@
                         <div class="lg:col-span-5">
                             @livewire('slug', ['title' => true])
                             <div class="py-4">
-                                <label for="name" class="block text-sm font-medium text-gray-700">
+                                <x-label for="name">
                                     Order <span class="text-red-400">*</span>
-                                </label>
+                                </x-label>
                                 <input
                                     type="text"
                                     name="order"
@@ -31,9 +31,9 @@
                                 >
                             </div>
                             <div class="max-w-full prose">
-                                <label for="content" class="block text-sm font-medium text-gray-700 pb-2">
+                                <x-label for="content" class="pb-2">
                                     Content <span class="text-red-400">*</span>
-                                </label>
+                                </x-label>
                                 <textarea
                                     id="content"
                                     name="content"

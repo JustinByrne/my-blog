@@ -18,8 +18,12 @@ class EnsureSiteIsSetup
      */
     public function handle(Request $request, Closure $next)
     {
-        if (! CheckSetupService::check()) {
+        if (! CheckSetupService::check() && ! $request->routeIs('setup.*')) {
             return redirect()->route('setup.index');
+        }
+
+        if (CheckSetupService::check() && $request->routeIs('setup.*')) {
+            return redirect()->route('home');
         }
         
         return $next($request);

@@ -22,9 +22,10 @@ use App\Http\Controllers\SettingsController;
 |
 */
 
-Route::get('/setup', [SetupController::class, 'index'])->name('setup.index');
 
 Route::middleware(['isSetup'])->group(function () {
+    Route::get('/setup', [SetupController::class, 'index'])->name('setup.index');
+    
     Route::get('/', HomeController::class)->name('home');
     
     require __DIR__.'/auth.php';

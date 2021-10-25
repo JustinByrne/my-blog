@@ -41,7 +41,7 @@
                         </h2>
                     </a>
                     <div class="prose prose-red mb-2">
-                        {!! \Illuminate\Support\Str::words($article->content, 40, '...') !!}
+                        {!! $article->first_paragraph !!}
                     </div>
                     <small>
                         @foreach ($article->tags as $tag)

@@ -47,4 +47,18 @@ class Article extends Model implements HasMedia
     {
         return route('articles.show', [$this->published_at->year, $this->published_at->month, $this->published_at->day, $this->slug]);
     }
+
+    public function getFirstParagraphAttribute()
+    {
+        $start = 0;
+
+        // looking for a paragraph tag
+        $pattern = "/(<p>)|(<p )/";
+        preg_match($pattern, $this->content, $matches, PREG_OFFSET_CAPTURE);
+        if (is_array($matches)) {
+            $start = $matches[0][1];
+        }
+        
+        return substr($this->content, $start, strpos($this->content, '</p>')+4);
+    }
 }

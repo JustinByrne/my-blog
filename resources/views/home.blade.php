@@ -37,7 +37,7 @@
                     </div>
                     <a href="{{ $article->path() }}" class="hover:text-red-800">
                         <h2 class="font-bold text-2xl mt-2 mb-4">
-                            {{ $article->title }}
+                            {{ ucwords($article->title) }}
                         </h2>
                     </a>
                     <div class="prose prose-red mb-2">

@@ -5,15 +5,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import 'highlight.js/styles/github-dark.css';
+
 .ck-editor__editable {
     @apply h-96;
-}
-
-.prose code {
-    @apply text-red-800 bg-red-100 px-1;
-}
-
-.prose code::before,
-.prose code::after {
-    content: '';
 }

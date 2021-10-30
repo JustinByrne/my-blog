@@ -5,18 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         @if (! is_null($site_logo))<link rel="shortcut icon" type="image/png" href="{{ $site_logo }}"/>@endif
-        <title>{{ $title != $site_name ? $title . ' | ' . $site_name : $site_name }}</title>
+
+        <title>{{ $title != $site_name ? ucwords($title) . ' | ' . $site_name : $site_name }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/a11y-dark.min.css" integrity="sha512-Vj6gPCk8EZlqnoveEyuGyYaWZ1+jyjMPg8g4shwyyNlRQl6d3L9At02ZHQr5K6s5duZl/+YKMnM3/8pDhoUphg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+        <script src="{{ asset('js/highlight.js') }}" defer></script>
     </head>
 
     <body class="font-sans antialiased">
@@ -88,7 +88,7 @@
                 <div class="w-full h-56 lg:h-96 bg-cover bg-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" @if (! is_null($image)) style="background-image: url('{{ $image }}')" @endif>
                     <div class="bg-black bg-opacity-60 w-full h-full flex justify-center items-center">
                         <h1 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl px-8 text-center">
-                            {{ $title }}
+                            {{ ucwords($title) }}
                             
                             @if (! is_null($subtitle))
                                 <br>
@@ -108,8 +108,5 @@
 
             @include('layouts.footer')
         </div>
-        <script>
-            hljs.initHighlightingOnLoad();
-        </script>
     </body>
 </html>

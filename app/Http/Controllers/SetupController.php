@@ -11,8 +11,8 @@ class SetupController extends Controller
     public function index(): View
     {
         $requirements = [
-            'PHP 7.4' => [
-                'result' => PHP_VERSION_ID >= 70400,
+            'PHP 8.0+' => [
+                'result' => PHP_VERSION_ID >= 80000,
                 'description' => null,
             ],
             'bcmath extension' => [

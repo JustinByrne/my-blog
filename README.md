@@ -5,7 +5,7 @@ A simple Laravel blog that allows for posting articles, and creating pages.
 ## Requirements
 
 * Composer
-* PHP 7.3+
+* PHP 8.0+
 
 ## Installation
 

@@ -29,14 +29,14 @@ class SettingComposer
             DB::connection()->getPdo();
         } catch (\Exception $e) {
             foreach ($this->settings as $setting) {
-                View::share($setting, null);
+                $view->with($setting, null);
             }
 
             return;
         }
         
         foreach ($this->settings as $setting) {
-            View::share($setting, Setting::where('name', $setting)->first()->value);
+            $view->with($setting, Setting::where('name', $setting)->first()->value);
         }
     }
 }

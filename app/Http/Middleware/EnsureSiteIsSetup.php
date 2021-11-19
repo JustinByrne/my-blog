@@ -19,7 +19,7 @@ class EnsureSiteIsSetup
     public function handle(Request $request, Closure $next)
     {
         if (! CheckSetupService::check() && ! $request->routeIs('setup.*')) {
-            return redirect()->route('setup.index');
+            return redirect()->route('setup.welcome');
         }
 
         if (CheckSetupService::check() && $request->routeIs('setup.*')) {

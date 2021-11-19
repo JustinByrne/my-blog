@@ -74,11 +74,22 @@
                             <x-nav.responsive-link :href="route('home')" :active="request()->routeIs('home')">
                                 {{ __('Home') }}
                             </x-nav.responsive-link>
+
                             @foreach (App\Models\Page::whereNotNull('published_at')->orderBy('order')->get() as $menu)
                                 <x-nav.responsive-link :href="route('pages.show', $menu)" :active="\Request::Is('pages.show', $menu)">
                                     {{ $menu->title }}
                                 </x-nav.responsive-link>
                             @endforeach
+
+                            @auth
+                                <x-nav.responsive-link :href="url('/dashboard')">
+                                    {{ __('Dashboard') }}
+                                </x-nav.responsive-link>
+                            @else
+                                <x-nav.responsive-link :href="route('login')">
+                                    {{ __('Login') }}
+                                </x-nav.responsive-link>
+                            @endauth
                         </div>
                     </div>
                 </nav>

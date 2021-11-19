@@ -43,7 +43,7 @@
                                 DB Host
                             </label>
                             <div class="mt-1">
-                                <input type="text" name="db_host" value="127.0.0.1" id="db_host" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" name="db_host" id="db_host" value="{{ old('db_host', '127.0.0.1') }}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                             </div>
                         </div>
                         <div>
@@ -51,7 +51,7 @@
                                 DB Port
                             </label>
                             <div class="mt-1">
-                                <input type="text" name="db_port" id="db_port" value="3306" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" name="db_port" id="db_port" value="{{ old('db_port', '3306') }}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                             </div>
                         </div>
                         <div>
@@ -59,7 +59,7 @@
                                 DB Database
                             </label>
                             <div class="mt-1">
-                                <input type="text" name="db_database" id="db_database" value="laravel" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" name="db_database" id="db_database" value="{{ old('db_database', 'laravel') }}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                             </div>
                         </div>
                         <div>
@@ -67,7 +67,7 @@
                                 DB Username
                             </label>
                             <div class="mt-1">
-                                <input type="text" name="db_username" id="db_username" value="root" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                <input type="text" name="db_username" id="db_username" value="{{ old('db_username', 'root') }}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                             </div>
                         </div>
                         <div>

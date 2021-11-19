@@ -12,7 +12,7 @@
                 </h2>
                 <div class="my-5 text-left">
                     @if ($errors->any())
-                        <div class="rounded-md bg-red-50 p-4">
+                        <div class="rounded-md bg-red-50 p-4 mb-3">
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <!-- Heroicon name: solid/x-circle -->

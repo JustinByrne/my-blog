@@ -31,6 +31,6 @@ class SetupController extends Controller
 
         $pass = ! in_array(false, $requirements);
         
-        return view('setup.index', compact('requirements', 'pass'));
+        return view('setup.requirements', compact('requirements', 'pass'));
     }
 }

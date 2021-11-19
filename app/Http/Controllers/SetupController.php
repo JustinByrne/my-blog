@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use PDOException;
+use App\Models\User;
+use App\Models\Setting;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Artisan;
@@ -96,5 +99,47 @@ class SetupController extends Controller
         }
         
         return redirect()->route('setup.settings');
+    }
+
+    public function settings(): View
+    {
+        return view('setup.settings');
+    }
+
+    public function storeSettings(Request $request)
+    {
+        $request->validate([
+            'app_name' => 'required',
+            'app_url' => 'required',
+            'username' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+
+        Setting::where('name', 'site_name')->first()->update([
+            'value' => $request->app_name
+        ]);
+
+        User::find(1)->update([
+            'email' => $request->username,
+            'password' => Hash::make($request->password),
+        ]);
+
+        $envContent = File::get(base_path('.env'));
+
+        $envContent = preg_replace([
+            '/APP_NAME=(.*)\S/',
+            '/APP_URL=(.*)\S/',
+            '/SITE_SETUP=(.*)\S/',
+        ], [
+            'APP_NAME="' . $request->app_name . '"',
+            'APP_URL=' . $request->app_url,
+            'SITE_SETUP=true',
+        ], $envContent);
+
+        if ($envContent !== null) {
+            File::put(base_path('.env'), $envContent);
+        }
+
+        return redirect()->route('home');
     }
 }

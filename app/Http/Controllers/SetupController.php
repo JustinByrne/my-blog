@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\File;
 
 class SetupController extends Controller
 {
-    public function index(): View
+    public function welcome(): View
+    {
+        return view('setup.welcome');
+    }
+    
+    public function requirements(): View
     {
         $requirements = [
             'PHP 8.0+' => [

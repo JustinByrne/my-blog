@@ -24,7 +24,10 @@ use App\Http\Controllers\SettingsController;
 
 
 Route::middleware(['isSetup'])->group(function () {
-    Route::get('/setup', [SetupController::class, 'index'])->name('setup.index');
+    Route::prefix('/setup')->name('setup.')->group(function () {
+        Route::get('/', [SetupController::class, 'welcome'])->name('welcome');
+        Route::get('/requirements', [SetupController::class, 'requirements'])->name('requirements');
+    });
     
     Route::get('/', HomeController::class)->name('home');
     

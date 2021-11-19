@@ -27,6 +27,7 @@ Route::middleware(['isSetup'])->group(function () {
     Route::prefix('/setup')->name('setup.')->group(function () {
         Route::get('/', [SetupController::class, 'welcome'])->name('welcome');
         Route::get('/requirements', [SetupController::class, 'requirements'])->name('requirements');
+        Route::get('/database', [SetupController::class, 'database'])->name('database');
     });
     
     Route::get('/', HomeController::class)->name('home');

@@ -33,4 +33,9 @@ class SetupController extends Controller
         
         return view('setup.requirements', compact('requirements', 'pass'));
     }
+
+    public function database(): View
+    {
+        return view('setup.database');
+    }
 }

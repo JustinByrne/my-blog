@@ -1,5 +1,5 @@
 <x-setup-layout title="Database setup">
-    <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-full sm:align-middle sm:max-w-2xl sm:p-6"  x-data="{db: 'not selected'}">
+    <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-full sm:align-middle sm:max-w-2xl sm:p-6"  x-data="{db: 'mysql'}">
         <form method="POST">
             @csrf
 
@@ -33,9 +33,8 @@
                             Database Server
                         </label>
                         <select id="db_connection" name="db_connection" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" x-on:change="db = $event.target.value">
-                            <option selected disabled></option>
-                            <option value="mysql">MySQL</option>
-                            <option value="sqlite">SQLite</option>
+                            <option value="mysql" selected>MySQL</option>
+                            {{-- <option value="sqlite">SQLite</option> --}}
                         </select>
                     </div>
                     <div class="flex flex-col space-y-2 pt-3" x-bind:class="{ 'hidden' : db != 'mysql'}">
@@ -80,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                    <div x-bind:class="{ 'hidden' : db != 'sqlite'}">
+                    {{-- <div x-bind:class="{ 'hidden' : db != 'sqlite'}">
                         <div class="pt-3">
                             <label for="db_database" class="block text-sm font-medium text-gray-700">
                                 DB Database
@@ -89,7 +88,7 @@
                                 <input type="text" name="db_database" id="db_database" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Absolute path e.g. /db/laravel.sqlite">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="mt-5 sm:mt-6">

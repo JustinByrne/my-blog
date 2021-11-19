@@ -10,7 +10,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
 
-    <body class="bg-gradient-to-r from-blue-300 via-indigo-500 to-purple-500 h-screen w-screen">
+    <body class="bg-gradient-to-r from-green-300 via-blue-400 to-purple-400 h-screen w-screen">
         <main class="flex h-full justify-center p-8 items-start lg:items-center">
             {{ $slot }}
         </main>

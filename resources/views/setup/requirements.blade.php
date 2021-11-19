@@ -6,7 +6,7 @@
                     My Blog
                 </h1>
                 <h2 class="text-lg leading-6 font-medium text-gray-900">
-                    Requirements
+                    Step 1: Requirements
                 </h2>
                 <div class="my-5">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">

@@ -16,52 +16,21 @@ class SetupController extends Controller
     public function requirements(): View
     {
         $requirements = [
-            'PHP 8.0+' => [
-                'result' => PHP_VERSION_ID >= 80000,
-                'description' => null,
-            ],
-            'bcmath extension' => [
-                'result' => extension_loaded('bcmath'),
-                'description' => null,
-            ],
-            'ctype extension' => [
-                'result' => extension_loaded('ctype'),
-                'description' => null,
-            ],
-            'json extension' => [
-                'result' => extension_loaded('json'),
-                'description' => null,
-            ],
-            'mbstring extension' => [
-                'result' => extension_loaded('mbstring'),
-                'description' => null,
-            ],
-            'openssl extension' => [
-                'result' => extension_loaded('openssl'),
-                'description' => null,
-            ],
-            'pdo_mysql extension' => [
-                'result' => extension_loaded('pdo_mysql'),
-                'description' => null,
-            ],
-            'tokenizer extension' => [
-                'result' => extension_loaded('tokenizer'),
-                'description' => null,
-            ],
-            'xml extension' => [
-                'result' => extension_loaded('xml'),
-                'description' => null,
-            ],
-            'env_writable' => [
-                'result' => File::isWritable(base_path('.env')),
-                'description' => null,
-            ],
-            'storage_writable' => [
-                'result' => File::isWritable(storage_path()) && File::isWritable(storage_path('logs')),
-                'description' => null,
-            ],
+            'PHP 8.0+' => PHP_VERSION_ID >= 80000,
+            'bcmath ext' => extension_loaded('bcmath'),
+            'ctype ext' => extension_loaded('ctype'),
+            'json ext' => extension_loaded('json'),
+            'mbstring ext' => extension_loaded('mbstring'),
+            'openssl ext' => extension_loaded('openssl'),
+            'pdo_mysql ext' => extension_loaded('pdo_mysql'),
+            'tokenizer ext' => extension_loaded('tokenizer'),
+            'xml ext' => extension_loaded('xml'),
+            '.env writable' => File::isWritable(base_path('.env')),
+            'storage writable' => File::isWritable(storage_path()) && File::isWritable(storage_path('logs')),
         ];
+
+        $pass = ! in_array(false, $requirements);
         
-        return view('setup.index', compact('requirements'));
+        return view('setup.index', compact('requirements', 'pass'));
     }
 }

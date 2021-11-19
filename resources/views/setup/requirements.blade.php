@@ -1,4 +1,4 @@
-<x-setup-layout>
+<x-setup-layout title="System Requirements">
     <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all w-full sm:align-middle sm:max-w-2xl sm:p-6">
         <div>
             <div class="text-center">

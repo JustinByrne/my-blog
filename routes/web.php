@@ -28,7 +28,7 @@ Route::middleware(['isSetup'])->group(function () {
         Route::get('/', [SetupController::class, 'welcome'])->name('welcome');
         Route::get('/requirements', [SetupController::class, 'requirements'])->name('requirements');
         Route::get('/database', [SetupController::class, 'database'])->name('database');
-        Route::post('/database', [SetupController::class, 'databaseStore']);
+        Route::post('/database', [SetupController::class, 'storeDatabase']);
     });
     
     Route::get('/', HomeController::class)->name('home');

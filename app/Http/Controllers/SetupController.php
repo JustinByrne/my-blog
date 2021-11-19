@@ -44,7 +44,7 @@ class SetupController extends Controller
         return view('setup.database');
     }
 
-    public function databaseStore(Request $request): RedirectResponse
+    public function storeDatabase(Request $request): RedirectResponse
     {
         if (! $request->has('db_connection') || $request->db_connection != 'mysql') {
             return redirect()->route('setup.database')->withErrors(['msg' => 'Incorrect database connection']);

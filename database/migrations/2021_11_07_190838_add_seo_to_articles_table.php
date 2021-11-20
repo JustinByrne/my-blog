@@ -14,8 +14,8 @@ class AddSeoToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->string('keywords')->after('published_at');
-            $table->string('description')->after('keywords');
+            $table->string('keywords')->after('published_at')->nullable();
+            $table->string('description')->after('keywords')->nullable();
             $table->unsignedBigInteger('author_id')->after('description')->nullable();
             $table->foreign('author_id')->references('id')->on('users');
         });

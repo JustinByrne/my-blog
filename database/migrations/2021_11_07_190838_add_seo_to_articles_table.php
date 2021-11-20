@@ -18,6 +18,8 @@ class AddSeoToArticlesTable extends Migration
             $table->string('seo_description')->after('seo_keywords')->nullable();
             $table->unsignedBigInteger('author_id')->after('seo_description')->nullable();
             $table->foreign('author_id')->references('id')->on('users');
+            $table->dropForeign('articles_user_id_foreign');
+            $table->dropColumn('user_id');
         });
     }
 

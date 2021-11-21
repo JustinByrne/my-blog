@@ -1,4 +1,4 @@
-<x-public-layout :image="$article->getFirstMediaUrl()">
+<x-public-layout :image="$article->getFirstMediaUrl()" :model="$article">
     <x-slot name="title">
         {{ $article->title }}
     </x-slot>

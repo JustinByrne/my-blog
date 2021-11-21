@@ -9,10 +9,12 @@ class PublicLayout extends Component
 {
     public $image;
     public $subtitle;
+    public $model;
     
-    public function __construct($image = null)
+    public function __construct($image = null, $model = null)
     {
-        $this->image = ! is_null($image) && $image != '' ? $image : null ;
+        $this->image = $image != '' ? $image : null;
+        $this->model = $model;
     }
     
     public function render(): View

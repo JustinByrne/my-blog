@@ -5,16 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         @if (! is_null($site_logo))<link rel="shortcut icon" type="image/png" href="{{ $site_logo }}"/>@endif
-
         <title>{{ $title != $site_name ? ucwords($title) . ' | ' . $site_name : $site_name }}</title>
-
-        <!-- Fonts -->
+        <x-seo-tags :title="$title" :model="$model ?? null" :image="$image" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('js/highlight.js') }}" defer></script>
     </head>

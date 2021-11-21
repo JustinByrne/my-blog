@@ -140,6 +140,8 @@ class SetupController extends Controller
             File::put(base_path('.env'), $envContent);
         }
 
+        Artisan::call('storage:link');
+
         return redirect()->route('home');
     }
 }

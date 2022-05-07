@@ -15,7 +15,7 @@ class ImageSeeder extends Seeder
     public function run()
     {
         Image::updateOrCreate([
-            'id' => 1,
+            "id" => 1,
         ]);
     }
 }

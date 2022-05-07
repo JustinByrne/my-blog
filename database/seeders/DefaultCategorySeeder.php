@@ -15,11 +15,9 @@ class DefaultCategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::updateOrCreate(
-            [
-                'name' => 'Uncategorised',
-                'slug' => Str::slug('Uncategorised'),
-            ]
-        );
+        Category::updateOrCreate([
+            "name" => "Uncategorised",
+            "slug" => Str::slug("Uncategorised"),
+        ]);
     }
 }

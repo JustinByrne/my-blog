@@ -12,6 +12,7 @@
         "doctrine/dbal": "^3.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.3.0",
+        "justinbyrne/extra-artisan-commands": "^1.0",
         "laravel/framework": "^v9.0",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",

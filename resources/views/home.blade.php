@@ -8,7 +8,7 @@
     </x-slot>
     <div class="flex flex-col space-y-20 px-4 lg:px-40 py-4">
         @foreach ($articles as $article)
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 h-56">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
                 <div
                     @class([
                         'lg:col-span-2',
@@ -40,7 +40,7 @@
                             {{ ucwords($article->title) }}
                         </h2>
                     </a>
-                    <div class="prose prose-red mb-2">
+                    <div class="prose prose-red mb-2 overflow-hidden max-w-full whitespace-normal max-h-36">
                         {!! $article->first_paragraph !!}
                     </div>
                     <small>
